@@ -133,7 +133,7 @@ export function Header() {
               aria-modal="true"
             >
               <div className="flex items-center justify-between">
-                <Logo />
+                <Logo compact />
                 <button
                   type="button"
                   onClick={() => setMenuOpen(false)}
