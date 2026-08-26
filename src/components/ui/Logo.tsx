@@ -1,10 +1,40 @@
 import { cn } from "../../lib/cn";
 
 /**
- * Placeholder for the official university crest + wordmark.
- * Swap the <svg> mark and text for the real logo asset when available —
- * this component is the single place that needs to change.
+ * University crest, redrawn as SVG from the supplied artwork (A monogram
+ * with flanking flourishes, "1952", "Amanzholov University" wordmark).
+ * Swap the <svg> mark for the exact original asset once a vector/PNG file
+ * is available — this component is the single place that needs to change.
  */
+function Crest({ color, size, detailed }: { color: string; size: number; detailed: boolean }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 260 300" fill="none" aria-hidden className="shrink-0">
+      {detailed && (
+        <g stroke={color} strokeWidth="11" strokeLinecap="round" fill="none">
+          <path d="M 100,58 C 80,50 60,54 48,70 C 38,84 40,100 54,106 C 50,94 52,82 62,72 C 70,64 82,60 100,58 Z" />
+          <path d="M 160,58 C 180,50 200,54 212,70 C 222,84 220,100 206,106 C 210,94 208,82 198,72 C 190,64 178,60 160,58 Z" />
+        </g>
+      )}
+      <text
+        x="130"
+        y="150"
+        textAnchor="middle"
+        fontFamily="Georgia, 'Times New Roman', serif"
+        fontWeight="700"
+        fontSize="108"
+        fill={color}
+      >
+        A
+      </text>
+      {detailed && (
+        <text x="130" y="140" textAnchor="middle" fontFamily="Arial, sans-serif" fontWeight="700" fontSize="13" fill={color}>
+          1952
+        </text>
+      )}
+    </svg>
+  );
+}
+
 export function Logo({
   inverse = false,
   compact = false,
@@ -17,49 +47,27 @@ export function Logo({
   className?: string;
 }) {
   const ink = inverse ? "#ffffff" : "var(--color-ink-900)";
+  // The flourishes read as noise below ~40px, so small header contexts get a
+  // clean "A" monogram; the full crest with flourishes needs more room.
+  const detailed = !compact;
 
   return (
-    <a
-      href="#top"
-      className={cn("flex items-center gap-2.5 shrink-0", className)}
-      aria-label="Amanzholov University — home. Logo placeholder: swap for the official crest."
-    >
-      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden className="shrink-0">
-        <rect
-          x="1"
-          y="1"
-          width="32"
-          height="32"
-          rx="9"
-          stroke={ink}
-          strokeWidth="1.4"
-          strokeDasharray="3 2.5"
-          fill="none"
-          opacity="0.5"
-        />
-        <path
-          d="M17 9L22.5 24H20.1L18.7 20.3H15.3L13.9 24H11.5L17 9ZM17 12.9L15.5 18.4H18.5L17 12.9Z"
-          fill={ink}
-        />
-      </svg>
-      {!iconOnly && (
-        <span className="leading-tight">
-          {!compact && (
-            <span
-              className="block text-[10px] font-semibold uppercase tracking-[0.16em]"
-              style={{ color: inverse ? "rgba(255,255,255,0.6)" : "var(--color-ink-500)" }}
-            >
-              [University logo]
-            </span>
-          )}
+    <a href="#top" className={cn("flex items-center gap-2.5 shrink-0", className)} aria-label="Amanzholov University — home">
+      <Crest color={ink} size={detailed ? 40 : 30} detailed={detailed} />
+      {!iconOnly &&
+        (compact ? (
           <span
-            className="block whitespace-nowrap text-[15px] font-extrabold tracking-tight"
+            className="whitespace-nowrap text-[15px] font-extrabold tracking-tight"
             style={{ color: ink, fontFamily: "var(--font-display)" }}
           >
             Amanzholov University
           </span>
-        </span>
-      )}
+        ) : (
+          <span className="leading-[1.15]" style={{ color: ink, fontFamily: "var(--font-display)" }}>
+            <span className="block text-[15px] font-extrabold tracking-wide">AMANZHOLOV</span>
+            <span className="block text-[15px] font-extrabold tracking-[0.12em]">UNIVERSITY</span>
+          </span>
+        ))}
     </a>
   );
 }

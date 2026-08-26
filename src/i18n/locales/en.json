@@ -9,6 +9,10 @@
     "readMore": "Read more",
     "close": "Close"
   },
+  "admissionBar": {
+    "text": "Admissions for 2026/2027 are open",
+    "cta": "Apply now"
+  },
   "nav": {
     "university": "University",
     "education": "Education",
@@ -17,10 +21,10 @@
     "admission": "Admission",
     "cooperation": "International",
     "news": "News",
+    "digest": "Digest",
     "contacts": "Contacts",
     "search": "Search",
     "searchPlaceholder": "Search the website",
-    "cabinet": "My account",
     "menu": "Menu"
   },
   "hero": {
@@ -112,6 +116,19 @@
       { "category": "event", "date": "20.08.2026", "title": "Open day for entrants: campus tours every Saturday" },
       { "category": "administrative", "date": "17.08.2026", "title": "Dormitory registration deadline extended to September 5" },
       { "category": "event", "date": "12.08.2026", "title": "International Week: workshops with partner university delegates" }
+    ]
+  },
+  "digest": {
+    "eyebrow": "Periodical",
+    "title": "University digest",
+    "subtitle": "The university's key events, achievements and plans — in one issue every month.",
+    "viewAll": "All issues",
+    "download": "Download PDF",
+    "items": [
+      { "issue": "12", "date": "August 2026", "title": "Admissions season, new labs and summer internships" },
+      { "issue": "11", "date": "July 2026", "title": "Academic year highlights and graduation night" },
+      { "issue": "10", "date": "June 2026", "title": "Research grants and international internships" },
+      { "issue": "9", "date": "May 2026", "title": "Student Spring festival and sports achievements" }
     ]
   },
   "studentLife": {

@@ -1,10 +1,5 @@
 import {
   GraduationCap,
-  FlaskConical,
-  Rocket,
-  Globe2,
-  Users,
-  Briefcase,
   Library,
   LayoutGrid,
   CalendarDays,
@@ -23,9 +18,6 @@ import {
  * visual themes live here so the CMS/API layer can eventually replace either
  * side independently.
  */
-
-export const directionIcons = [GraduationCap, FlaskConical, Rocket, Globe2, Users, Briefcase];
-export const directionThemes = ["blue", "mint", "sand", "blue", "mint", "sand"] as const;
 
 export const newsCategoryTone: Record<string, "blue" | "mint" | "sand" | "ink"> = {
   science: "mint",

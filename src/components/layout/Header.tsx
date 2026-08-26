@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, Search, UserRound, X } from "lucide-react";
+import { Menu, Search, X } from "lucide-react";
 import { Logo } from "../ui/Logo";
 import { LanguageSwitcher } from "../ui/LanguageSwitcher";
 import { Container } from "../ui/Container";
@@ -9,12 +9,13 @@ import { cn } from "../../lib/cn";
 
 const NAV_KEYS: { key: string; href: string }[] = [
   { key: "university", href: "#top" },
-  { key: "education", href: "#directions" },
+  { key: "education", href: "#admission" },
   { key: "science", href: "#science" },
   { key: "students", href: "#student-life" },
   { key: "admission", href: "#admission" },
   { key: "cooperation", href: "#partners" },
   { key: "news", href: "#news" },
+  { key: "digest", href: "#digest" },
   { key: "contacts", href: "#site-footer" },
 ];
 
@@ -101,14 +102,6 @@ export function Header() {
             <LanguageSwitcher />
           </div>
 
-          <a
-            href="#"
-            aria-label={t("nav.cabinet") ?? "My account"}
-            className="hidden h-10 w-10 place-items-center rounded-full border border-[var(--color-line-strong)] text-[var(--color-ink-900)] transition-colors hover:bg-[var(--color-mist)] md:grid"
-          >
-            <UserRound size={18} strokeWidth={1.8} />
-          </a>
-
           <button
             type="button"
             onClick={() => setMenuOpen(true)}
@@ -164,15 +157,8 @@ export function Header() {
                 ))}
               </nav>
 
-              <div className="mt-auto flex items-center justify-between border-t border-[var(--color-line)] pt-6">
+              <div className="mt-auto border-t border-[var(--color-line)] pt-6">
                 <LanguageSwitcher />
-                <a
-                  href="#"
-                  className="flex items-center gap-2 rounded-full border border-[var(--color-line-strong)] px-4 py-2.5 text-sm font-semibold text-[var(--color-ink-900)]"
-                >
-                  <UserRound size={16} />
-                  {t("nav.cabinet")}
-                </a>
               </div>
             </motion.div>
           </motion.div>

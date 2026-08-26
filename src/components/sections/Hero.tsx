@@ -56,7 +56,7 @@ export function Hero() {
             <Button href="#admission" icon={<ArrowRight size={17} />}>
               {t("hero.ctaApply")}
             </Button>
-            <Button href="#directions" variant="secondary">
+            <Button href="#stats" variant="secondary">
               {t("hero.ctaAbout")}
             </Button>
           </div>
