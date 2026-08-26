@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------
+   Design tokens — Amanzholov University design system
+   Palette: light, natural, academic-digital.
+--------------------------------------------------------- */
+@theme {
+  --font-display: "Manrope", "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+
+  /* Neutrals */
+  --color-paper: #ffffff;
+  --color-mist: #f6f7f9;
+  --color-cloud: #eef0f3;
+  --color-line: #e2e6ec;
+  --color-line-strong: #cfd5df;
+
+  /* Ink (text) */
+  --color-ink-900: #10182b;
+  --color-ink-700: #33405c;
+  --color-ink-500: #647089;
+  --color-ink-400: #8993a8;
+
+  /* Blue — primary academic accent */
+  --color-blue-50: #eef4fd;
+  --color-blue-100: #dbe8fb;
+  --color-blue-300: #93b3ea;
+  --color-blue-500: #3d6fd6;
+  --color-blue-600: #2c56c2;
+  --color-blue-700: #1f3f97;
+  --color-blue-900: #14294d;
+
+  /* Mint — natural / science accent */
+  --color-mint-50: #e9f7f1;
+  --color-mint-100: #d3f0e3;
+  --color-mint-500: #2f9e7c;
+  --color-mint-600: #23825f;
+
+  /* Sand — warm human accent */
+  --color-sand-50: #faf4e9;
+  --color-sand-100: #f3e6cc;
+  --color-sand-400: #d9b77f;
+  --color-sand-600: #b3894a;
+
+  /* Radii */
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-xl: 28px;
+
+  /* Shadows */
+  --shadow-soft: 0 1px 2px rgba(16, 24, 43, 0.04), 0 12px 32px -12px rgba(16, 24, 43, 0.12);
+  --shadow-lift: 0 2px 4px rgba(16, 24, 43, 0.05), 0 24px 48px -16px rgba(16, 24, 43, 0.18);
+
+  --animate-marquee: marquee 32s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink-900);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  /* Kazakh and Russian compound words can run long; guard tight cards and
+     nav rows against any single word forcing horizontal overflow. Unlike
+     break-word, `anywhere` also counts toward intrinsic sizing, so flex/grid
+     text children shrink correctly without needing min-width:0 everywhere. */
+  h1, h2, h3, h4, h5, p, span, a {
+    overflow-wrap: anywhere;
+  }
+
+  ::selection {
+    background: var(--color-blue-100);
+    color: var(--color-blue-900);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-blue-500);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .container-page {
+    width: 100%;
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: 20px;
+  }
+  @media (min-width: 768px) {
+    .container-page {
+      padding-inline: 32px;
+    }
+  }
+  @media (min-width: 1280px) {
+    .container-page {
+      padding-inline: 48px;
+    }
+  }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}

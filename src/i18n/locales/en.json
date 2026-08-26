@@ -1,0 +1,187 @@
+{
+  "meta": {
+    "title": "Amanzholov University — official website"
+  },
+  "common": {
+    "skipToContent": "Skip to content",
+    "viewAll": "All news",
+    "learnMore": "Learn more",
+    "readMore": "Read more",
+    "close": "Close"
+  },
+  "nav": {
+    "university": "University",
+    "education": "Education",
+    "science": "Science",
+    "students": "Students",
+    "admission": "Admission",
+    "cooperation": "International",
+    "news": "News",
+    "contacts": "Contacts",
+    "search": "Search",
+    "searchPlaceholder": "Search the website",
+    "cabinet": "My account",
+    "menu": "Menu"
+  },
+  "hero": {
+    "eyebrow": "Amanzholov University · since 1952",
+    "title": "The university that builds",
+    "titleAccent": "what comes next",
+    "subtitle": "We bring together education, research, technology and international partnership to give every student room to grow — from the first lecture to a career that matters.",
+    "ctaApply": "Admission",
+    "ctaAbout": "About the university",
+    "cardStudents": "students on campus",
+    "cardPrograms": "degree programs",
+    "cardGlobal": "partner universities worldwide",
+    "scroll": "Scroll"
+  },
+  "stats": {
+    "eyebrow": "Amanzholov University in numbers",
+    "title": "A community built on scale and substance",
+    "items": [
+      { "value": 15000, "suffix": "+", "label": "Students" },
+      { "value": 100, "suffix": "+", "label": "Degree programs" },
+      { "value": 50, "suffix": "+", "label": "Research projects" },
+      { "value": 30, "suffix": "+", "label": "International partners" }
+    ]
+  },
+  "directions": {
+    "eyebrow": "What we do",
+    "title": "Six directions, one university",
+    "subtitle": "Every part of student life at Amanzholov University connects back to these six pillars.",
+    "items": [
+      { "title": "Education", "description": "Bachelor's, master's and doctoral programs built with employers and reviewed every year." },
+      { "title": "Science", "description": "Research labs and grant-funded projects spanning natural, technical and social sciences." },
+      { "title": "Innovation", "description": "Startup incubation, technology transfer and an applied approach to solving real problems." },
+      { "title": "International cooperation", "description": "Exchange semesters, joint degrees and research with partner universities across the world." },
+      { "title": "Student life", "description": "Clubs, sport, volunteering and self-government that make campus feel like home." },
+      { "title": "Career", "description": "Internships, employer partnerships and a career center that opens doors before graduation." }
+    ]
+  },
+  "news": {
+    "eyebrow": "Stay updated",
+    "title": "University news",
+    "viewAll": "All news",
+    "categories": {
+      "science": "Science",
+      "admission": "Admission",
+      "international": "International",
+      "campus": "Campus life",
+      "achievement": "Achievement"
+    },
+    "items": [
+      {
+        "category": "science",
+        "date": "2026-08-18",
+        "title": "New biotechnology laboratory opens on campus",
+        "excerpt": "The lab gives students hands-on access to equipment used in genomics and applied microbiology research, funded through a national science grant."
+      },
+      {
+        "category": "international",
+        "date": "2026-08-12",
+        "title": "Double-degree agreement signed with three European universities",
+        "excerpt": "Students in engineering and economics can now graduate with two diplomas through a redesigned exchange track starting this fall."
+      },
+      {
+        "category": "admission",
+        "date": "2026-08-05",
+        "title": "Admission committee opens for the 2026/2027 intake",
+        "excerpt": "Applications for bachelor's and master's programs are now open, with new scholarship tiers for high Unified National Testing scores."
+      },
+      {
+        "category": "achievement",
+        "date": "2026-07-29",
+        "title": "Robotics team wins regional engineering olympiad",
+        "excerpt": "A team of four undergraduate students took first place with an autonomous navigation project mentored by the Faculty of Engineering."
+      }
+    ]
+  },
+  "announcements": {
+    "eyebrow": "Don't miss out",
+    "title": "Announcements",
+    "filterAll": "All",
+    "categories": {
+      "academic": "Academic",
+      "event": "Event",
+      "scholarship": "Scholarships",
+      "administrative": "Administrative"
+    },
+    "items": [
+      { "category": "scholarship", "date": "26.08.2026", "title": "Applications open for the Rector's merit scholarship" },
+      { "category": "academic", "date": "24.08.2026", "title": "Autumn semester schedule published for all faculties" },
+      { "category": "event", "date": "20.08.2026", "title": "Open day for entrants: campus tours every Saturday" },
+      { "category": "administrative", "date": "17.08.2026", "title": "Dormitory registration deadline extended to September 5" },
+      { "category": "event", "date": "12.08.2026", "title": "International Week: workshops with partner university delegates" }
+    ]
+  },
+  "studentLife": {
+    "eyebrow": "Beyond the classroom",
+    "title": "The university is more than an education",
+    "subtitle": "Sport, clubs, volunteering, culture and student government — this is where lifelong friendships and skills are built.",
+    "cta": "Student life",
+    "tags": ["Sport", "Clubs & societies", "Volunteering", "Culture", "Student government", "Exchange programs"]
+  },
+  "science": {
+    "eyebrow": "Research at Amanzholov University",
+    "title": "Science. Technology. What's next.",
+    "subtitle": "From applied AI to biotechnology, our labs work on problems with a direct line to industry and society.",
+    "points": [
+      { "title": "Applied AI & data", "description": "Machine learning research applied to agriculture, healthcare and public services." },
+      { "title": "Digital & robotics engineering", "description": "Student-built robotics and automation projects supported by industry partners." },
+      { "title": "Life sciences", "description": "Genomics, ecology and biotechnology research grounded in the region's natural resources." }
+    ],
+    "cta": "Explore research"
+  },
+  "admission": {
+    "eyebrow": "Entrants",
+    "title": "Start your journey with us",
+    "subtitle": "Everything you need to apply — programs, deadlines and admission requirements — in one place.",
+    "ctaApply": "Apply now",
+    "ctaPrograms": "Degree programs",
+    "ctaCommittee": "Admission committee"
+  },
+  "quickAccess": {
+    "eyebrow": "For students & staff",
+    "title": "Quick access",
+    "items": [
+      { "label": "Platonus" },
+      { "label": "My account" },
+      { "label": "Timetable" },
+      { "label": "Library" },
+      { "label": "E-resources" },
+      { "label": "Moodle / LMS" },
+      { "label": "Anti-plagiarism" },
+      { "label": "Webmail" }
+    ]
+  },
+  "partners": {
+    "eyebrow": "Trusted network",
+    "title": "Our partners",
+    "subtitle": "Universities, research institutes and companies we work with in Kazakhstan and abroad."
+  },
+  "footer": {
+    "tagline": "The university that builds what comes next.",
+    "columns": {
+      "university": {
+        "title": "University",
+        "links": ["About the university", "Leadership", "Structure", "Documents"]
+      },
+      "education": {
+        "title": "Education",
+        "links": ["Bachelor's", "Master's", "Doctoral studies", "Degree programs"]
+      },
+      "students": {
+        "title": "Students",
+        "links": ["Timetable", "My account", "Library", "Student life"]
+      },
+      "contacts": {
+        "title": "Contacts",
+        "address": "34 Kazakhstan St, Ust-Kamenogorsk, Kazakhstan",
+        "phone": "+7 (7232) 25-30-01",
+        "email": "info@vku.edu.kz"
+      }
+    },
+    "rights": "Amanzholov University. All rights reserved.",
+    "socialLabel": "Social media"
+  }
+}
