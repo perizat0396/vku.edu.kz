@@ -51,7 +51,6 @@
     "ratingsLabel": "Ұлттық және халықаралық рейтингтер",
     "ratings": [
       { "value": "4 жұлдыз", "label": "QS Stars University Ratings" },
-      { "value": "ҚР бойынша №42", "label": "Webometrics Ranking of World Universities" },
       { "value": "8-орын", "label": "ҚР ЖОО Топ-20 · ҰААР, 2026" },
       { "value": "5-орын", "label": "ҚР көппрофильді ЖОО-лары · IQAA, 2026" }
     ]

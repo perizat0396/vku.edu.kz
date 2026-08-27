@@ -51,7 +51,6 @@
     "ratingsLabel": "National and international rankings",
     "ratings": [
       { "value": "4 stars", "label": "QS Stars University Ratings" },
-      { "value": "№42 in Kazakhstan", "label": "Webometrics Ranking of World Universities" },
       { "value": "8th place", "label": "Top-20 Kazakhstan universities · IAAR, 2026" },
       { "value": "5th place", "label": "Multidisciplinary universities of Kazakhstan · IQAA, 2026" }
     ]

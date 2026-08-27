@@ -51,7 +51,6 @@
     "ratingsLabel": "Национальные и международные рейтинги",
     "ratings": [
       { "value": "4 звезды", "label": "QS Stars University Ratings" },
-      { "value": "№42 в РК", "label": "Webometrics Ranking of World Universities" },
       { "value": "8 место", "label": "Топ-20 вузов РК · НААР, 2026" },
       { "value": "5 место", "label": "Многопрофильные вузы РК · IQAA, 2026" }
     ]
