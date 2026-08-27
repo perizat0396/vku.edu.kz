@@ -32,13 +32,22 @@ export function News() {
               eyebrow={t("news.eyebrow") ?? undefined}
               title={t("news.title")}
               action={
-                <a
-                  href="#"
-                  className="inline-flex items-center gap-1.5 text-[15px] font-semibold text-[var(--color-blue-600)] transition-colors hover:text-[var(--color-blue-700)]"
-                >
-                  {t("news.viewAll")}
-                  <ArrowRight size={16} />
-                </a>
+                <div className="flex items-center gap-5">
+                  <a
+                    href="#"
+                    className="inline-flex items-center gap-1.5 text-[15px] font-semibold text-[var(--color-blue-600)] transition-colors hover:text-[var(--color-blue-700)]"
+                  >
+                    {t("news.viewAll")}
+                    <ArrowRight size={16} />
+                  </a>
+                  <a
+                    href="#"
+                    className="inline-flex items-center gap-1.5 text-[15px] font-semibold text-[var(--color-ink-500)] transition-colors hover:text-[var(--color-ink-900)]"
+                  >
+                    {t("nav.digest")}
+                    <ArrowRight size={16} />
+                  </a>
+                </div>
               }
             />
 

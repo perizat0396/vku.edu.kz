@@ -15,7 +15,7 @@ const NAV_KEYS: { key: string; href: string }[] = [
   { key: "admission", href: "#admission" },
   { key: "cooperation", href: "#partners" },
   { key: "news", href: "#news" },
-  { key: "digest", href: "#digest" },
+  { key: "digest", href: "#news" },
   { key: "contacts", href: "#site-footer" },
 ];
 
