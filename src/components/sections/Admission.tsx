@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
-import { ArrowRight, GraduationCap } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Container } from "../ui/Container";
 import { Eyebrow } from "../ui/SectionHeading";
 import { Button } from "../ui/Button";
-import { PatternArt } from "../ui/PatternArt";
+import { Photo } from "../ui/Photo";
 import { Reveal } from "../ui/Reveal";
 
 export function Admission() {
@@ -40,12 +40,11 @@ export function Admission() {
             </div>
 
             <div className="relative min-h-[280px]">
-              <PatternArt
-                theme="blue"
-                icon={<GraduationCap />}
-                label="Entrants photo — placeholder"
-                rounded="md"
-                className="absolute inset-0 h-full w-full rounded-none lg:rounded-l-[40px]"
+              <Photo
+                src="entrants.jpg"
+                alt="Amanzholov University graduate"
+                objectPosition="38% 22%"
+                className="absolute inset-0 rounded-none lg:rounded-l-[40px]"
               />
             </div>
           </div>

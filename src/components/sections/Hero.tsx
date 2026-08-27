@@ -1,10 +1,10 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowDown, GraduationCap, Globe2, Users } from "lucide-react";
+import { ArrowRight, ArrowDown, Globe2, Users } from "lucide-react";
 import { Container } from "../ui/Container";
 import { Button } from "../ui/Button";
 import { Eyebrow } from "../ui/SectionHeading";
-import { PatternArt } from "../ui/PatternArt";
+import { Photo } from "../ui/Photo";
 
 export function Hero() {
   const { t } = useTranslation();
@@ -83,10 +83,10 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
         >
-          <PatternArt
-            theme="blue"
-            icon={<GraduationCap />}
-            label="Campus photo — placeholder"
+          <Photo
+            src="campus.jpeg"
+            alt="Amanzholov University campus"
+            rounded="xl"
             className="aspect-[4/5] w-full shadow-[var(--shadow-lift)] sm:aspect-[5/5.5]"
           />
 
