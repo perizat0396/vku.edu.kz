@@ -84,7 +84,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
         >
           <Photo
-            src="campus.jpeg"
+            src="campus2.jpg"
             alt="Amanzholov University campus"
             rounded="xl"
             className="aspect-[4/5] w-full shadow-[var(--shadow-lift)] sm:aspect-[5/5.5]"
