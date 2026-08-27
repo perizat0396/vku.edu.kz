@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
-import { ArrowRight, Atom } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Container } from "../ui/Container";
 import { Eyebrow } from "../ui/SectionHeading";
 import { Button } from "../ui/Button";
-import { PatternArt } from "../ui/PatternArt";
+import { Photo } from "../ui/Photo";
 import { Reveal } from "../ui/Reveal";
 import { sciencePointIcons } from "../../data/content";
 
@@ -17,10 +17,10 @@ export function Science() {
     <section id="science" className="bg-white py-20 md:py-28">
       <Container className="grid gap-12 lg:grid-cols-[1fr_1.05fr] lg:items-center lg:gap-14">
         <Reveal>
-          <PatternArt
-            theme="ink"
-            icon={<Atom />}
-            label="Laboratory photo — placeholder"
+          <Photo
+            src="IMG_7818.jpg"
+            alt="Students working in an Amanzholov University laboratory"
+            rounded="xl"
             className="aspect-[4/5] w-full shadow-[var(--shadow-lift)] sm:aspect-[16/13]"
           />
         </Reveal>
