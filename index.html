@@ -13,6 +13,18 @@
       rel="stylesheet"
     />
     <title>Amanzholov University</title>
+    <script>
+      // Pairs with public/404.html's GitHub Pages SPA redirect: restore the
+      // real URL from the ?redirect= param before the router mounts.
+      (function () {
+        var params = new URLSearchParams(location.search);
+        var redirect = params.get("redirect");
+        if (redirect !== null) {
+          var BASE_PATH = "/vku.edu.kz/";
+          history.replaceState(null, "", BASE_PATH + redirect);
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

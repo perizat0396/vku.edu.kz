@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Amanzholov University</title>
+    <script>
+      // GitHub Pages has no server-side routing, so a direct link or refresh
+      // on a client-side route (e.g. /vku.edu.kz/students/navigator) 404s.
+      // Redirect it to index.html with the intended path in a query param;
+      // the matching script in index.html restores the real URL before the
+      // app mounts. See https://github.com/rafgraph/spa-github-pages.
+      var BASE_PATH = "/vku.edu.kz/";
+      var path = location.pathname.slice(BASE_PATH.length);
+      location.replace(BASE_PATH + "?redirect=" + encodeURIComponent(path) + location.search + location.hash);
+    </script>
+  </head>
+  <body></body>
+</html>

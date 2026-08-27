@@ -18,6 +18,8 @@
     "education": "Education",
     "science": "Science",
     "students": "Students",
+    "studentLifeLink": "Student life",
+    "studentNavigator": "Student Navigator",
     "admission": "Admission",
     "cooperation": "International",
     "news": "News",
@@ -193,5 +195,72 @@
     },
     "rights": "Amanzholov University. All rights reserved.",
     "socialLabel": "Social media"
+  },
+  "studentNavigator": {
+    "eyebrow": "Students",
+    "title": "Student Navigator",
+    "subtitle": "7 steps for first-year students",
+    "backLink": "Back to homepage",
+    "steps": [
+      {
+        "emoji": "📌",
+        "title": "Get to know your advisor and curator",
+        "intro": "Your first helpers and guides at the university are your advisor and curator.",
+        "bulletsIntro": "They:",
+        "bullets": ["explain how the academic process works", "help you choose your courses", "support you as you settle into university life"],
+        "note": "Tip: if a question comes up, don't put it off — reach out right away."
+      },
+      {
+        "emoji": "📱",
+        "title": "Use Platonus every day!",
+        "intro": "The university's main digital platform is your everyday assistant.",
+        "bulletsIntro": "Here you'll find:",
+        "bullets": ["your class schedule", "course syllabi", "assignments", "grades", "learning materials"],
+        "note": "A five-minute check-in saves you from last-minute rushing and surprises."
+      },
+      {
+        "emoji": "📚",
+        "title": "The library — a space for focused study!",
+        "intro": "The university library isn't just a place to borrow books.",
+        "bulletsIntro": "It has:",
+        "bullets": ["reading rooms", "academic literature", "digital resources", "a comfortable space for independent study"],
+        "note": "Good results often start with a well-organized space."
+      },
+      {
+        "emoji": "🥇🚀",
+        "title": "Be an active student!",
+        "intro": "Amanzholov University runs a Youth Affairs Committee and dozens of student organizations.",
+        "bulletsIntro": "Pick a direction that speaks to you:",
+        "bullets": ["🎭 SHABYT — student theatre", "🗣️ DILMAR — debate club", "🤝 MEYIRIM and SHUAQ — volunteer organizations", "🌿 THE GREEN WAVE", "🧠 Mind Matters Club", "📚 Oqyrman and others"],
+        "note": "Joining just one organization can open up dozens of new opportunities."
+      },
+      {
+        "emoji": "🤝",
+        "title": "Don't be afraid to ask for help!",
+        "intro": "You don't have to solve every problem on your own.",
+        "bulletsIntro": "The university has:",
+        "bullets": ["a psychological support service", "a student affairs and social issues office", "advisors and curators"],
+        "subBlockIntro": "Seeing a psychologist is:",
+        "subBullets": ["confidential", "safe", "by appointment"],
+        "note": "Asking for help isn't weakness — it's the right call."
+      },
+      {
+        "emoji": "🛡️",
+        "title": "Your safety is in your hands!",
+        "intro": "Three rules every student should remember:",
+        "bullets": ["don't share your personal data with strangers", "never give out your banking codes", "don't trust suspicious messages or dubious job offers"],
+        "note": "Also follow the university's internal rules and safety requirements."
+      },
+      {
+        "emoji": "🎓",
+        "title": "Think of the university as a space full of possibilities!",
+        "intro": "Amanzholov University gives students opportunities for:",
+        "bullets": ["academic mobility", "joining research clubs", "running student projects", "career development"],
+        "note": "What you do today is the foundation of what you'll achieve tomorrow."
+      }
+    ],
+    "finalTitle": "💡 Remember!",
+    "finalText1": "The university isn't just where you get a diploma.",
+    "finalText2": "It's a place where you find yourself, make friends, gain experience, and shape your future."
   }
 }
