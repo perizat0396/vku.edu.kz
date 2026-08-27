@@ -18,8 +18,9 @@ export function Science() {
       <Container className="grid gap-12 lg:grid-cols-[1fr_1.05fr] lg:items-center lg:gap-14">
         <Reveal>
           <Photo
-            src="chemistry-lab.jpg"
+            src="images2.jpeg"
             alt="Amanzholov University student in a chemistry laboratory"
+            objectPosition="center 20%"
             rounded="xl"
             className="aspect-[4/5] w-full shadow-[var(--shadow-lift)] sm:aspect-[16/13]"
           />
