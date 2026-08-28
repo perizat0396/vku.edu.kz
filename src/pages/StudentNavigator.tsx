@@ -143,14 +143,16 @@ export function StudentNavigator() {
             className="relative mt-4 overflow-hidden rounded-[28px] p-8 sm:p-10"
             style={{ background: "linear-gradient(135deg, #1f3f97 0%, #14294d 100%)" }}
           >
-            <div className="text-center">
-              <img src={`${import.meta.env.BASE_URL}bulb.png`} alt="" className="mx-auto h-20 w-20" />
-              <h2 className="mt-3 font-display text-2xl font-extrabold text-white sm:text-3xl">
-                {t("studentNavigator.finalTitle")}
-              </h2>
-              <p className="mx-auto mt-4 max-w-xl text-[16px] leading-relaxed text-white/75">
-                {t("studentNavigator.finalText1")} {t("studentNavigator.finalText2")}
-              </p>
+            <div className="flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-8">
+              <img src={`${import.meta.env.BASE_URL}bulb.png`} alt="" className="h-20 w-20 shrink-0 sm:h-24 sm:w-24" />
+              <div>
+                <h2 className="font-display text-2xl font-extrabold text-white sm:text-3xl">
+                  {t("studentNavigator.finalTitle")}
+                </h2>
+                <p className="mt-4 max-w-xl text-[16px] leading-relaxed text-white/75">
+                  {t("studentNavigator.finalText1")} {t("studentNavigator.finalText2")}
+                </p>
+              </div>
             </div>
           </div>
         </Reveal>
