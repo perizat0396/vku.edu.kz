@@ -46,7 +46,7 @@ export function StudentNavigator() {
           <Reveal>
             <Link
               to="/"
-              className="mb-8 inline-flex items-center gap-1.5 text-[14px] font-medium text-[var(--color-ink-500)] transition-colors hover:text-[var(--color-ink-900)]"
+              className="mb-10 flex w-fit items-center gap-1.5 text-[14px] font-medium text-[var(--color-ink-500)] transition-colors hover:text-[var(--color-ink-900)]"
             >
               <ArrowLeft size={15} />
               {t("studentNavigator.backLink")}
