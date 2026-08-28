@@ -8,7 +8,9 @@ import { ScrollToTop } from "./components/layout/ScrollToTop";
 import { Home } from "./pages/Home";
 import { StudentNavigator } from "./pages/StudentNavigator";
 import { NewsPage } from "./pages/News";
+import { NewsArticle } from "./pages/NewsArticle";
 import { Announcements } from "./pages/Announcements";
+import { AnnouncementDetail } from "./pages/AnnouncementDetail";
 
 function DocumentMeta() {
   const { i18n, t } = useTranslation();
@@ -33,7 +35,9 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/students/navigator" element={<StudentNavigator />} />
           <Route path="/news" element={<NewsPage />} />
+          <Route path="/news/:id" element={<NewsArticle />} />
           <Route path="/announcements" element={<Announcements />} />
+          <Route path="/announcements/:id" element={<AnnouncementDetail />} />
         </Routes>
       </main>
       <Footer />

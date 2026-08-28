@@ -14,9 +14,10 @@ export function AnnouncementsPanel() {
   const categoryKeys = Object.keys(t("announcements.categories", { returnObjects: true }) as Record<string, string>);
   const [active, setActive] = useState<string | "all">("all");
 
+  const indexed = useMemo(() => items.map((item, index) => ({ item, index })), [items]);
   const filtered = useMemo(
-    () => (active === "all" ? items : items.filter((item) => item.category === active)),
-    [items, active]
+    () => (active === "all" ? indexed : indexed.filter(({ item }) => item.category === active)),
+    [indexed, active]
   );
 
   return (
@@ -60,9 +61,9 @@ export function AnnouncementsPanel() {
       </div>
 
       <ul className="mt-6 flex flex-col divide-y divide-white/10">
-        {filtered.map((item) => (
+        {filtered.map(({ item, index }) => (
           <li key={item.title}>
-            <a href="#" className="group flex items-start gap-3 py-4 first:pt-0">
+            <Link to={`/announcements/${index}`} className="group flex items-start gap-3 py-4 first:pt-0">
               <span
                 className={cn(
                   "mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full",
@@ -83,7 +84,7 @@ export function AnnouncementsPanel() {
                 </p>
               </div>
               <ArrowRight size={15} className="mt-1 shrink-0 text-white/30 transition-transform group-hover:translate-x-0.5 group-hover:text-white/70" />
-            </a>
+            </Link>
           </li>
         ))}
       </ul>

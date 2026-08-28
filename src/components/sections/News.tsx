@@ -54,7 +54,7 @@ export function News() {
 
             <div className="mt-10 grid gap-6 md:grid-cols-2">
               <Reveal className="md:row-span-2">
-                <a href="#" className="group flex h-full flex-col overflow-hidden rounded-[28px] bg-white ring-1 ring-[var(--color-line)] transition-shadow duration-300 hover:shadow-[var(--shadow-lift)]">
+                <Link to="/news/0" className="group flex h-full flex-col overflow-hidden rounded-[28px] bg-white ring-1 ring-[var(--color-line)] transition-shadow duration-300 hover:shadow-[var(--shadow-lift)]">
                   <div className="relative aspect-[16/11] overflow-hidden">
                     <PatternArt
                       theme="blue"
@@ -79,14 +79,14 @@ export function News() {
                     </h3>
                     <p className="text-[15px] leading-relaxed text-[var(--color-ink-500)]">{featured.excerpt}</p>
                   </div>
-                </a>
+                </Link>
               </Reveal>
 
               <div className="flex flex-col gap-6">
                 {rest.map((item, i) => (
                   <Reveal key={item.title} delay={0.1 + i * 0.06}>
-                    <a
-                      href="#"
+                    <Link
+                      to={`/news/${i + 1}`}
                       className="group flex gap-4 rounded-2xl bg-white p-4 ring-1 ring-[var(--color-line)] transition-shadow duration-300 hover:shadow-[var(--shadow-soft)]"
                     >
                       <PatternArt
@@ -114,7 +114,7 @@ export function News() {
                         size={16}
                         className="ml-auto mt-1 shrink-0 self-start text-[var(--color-ink-400)] opacity-0 transition-opacity group-hover:opacity-100"
                       />
-                    </a>
+                    </Link>
                   </Reveal>
                 ))}
               </div>

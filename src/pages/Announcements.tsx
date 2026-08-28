@@ -23,9 +23,10 @@ export function Announcements() {
   const categoryKeys = Object.keys(t("announcements.categories", { returnObjects: true }) as Record<string, string>);
   const [active, setActive] = useState<string | "all">("all");
 
+  const indexed = useMemo(() => items.map((item, index) => ({ item, index })), [items]);
   const filtered = useMemo(
-    () => (active === "all" ? items : items.filter((item) => item.category === active)),
-    [items, active]
+    () => (active === "all" ? indexed : indexed.filter(({ item }) => item.category === active)),
+    [indexed, active]
   );
 
   return (
@@ -99,11 +100,11 @@ export function Announcements() {
         </Reveal>
 
         <ul className="mt-8 flex flex-col divide-y divide-[var(--color-line)] rounded-[28px] border border-[var(--color-line)]">
-          {filtered.map((item, i) => (
+          {filtered.map(({ item, index }, i) => (
             <Reveal key={item.title} delay={Math.min(i * 0.04, 0.24)}>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to={`/announcements/${index}`}
                   className="group flex items-start gap-4 p-5 transition-colors hover:bg-[var(--color-mist)] sm:p-6"
                 >
                   <span
@@ -121,7 +122,7 @@ export function Announcements() {
                     size={17}
                     className="mt-1 shrink-0 text-[var(--color-ink-400)] transition-transform group-hover:translate-x-0.5 group-hover:text-[var(--color-ink-700)]"
                   />
-                </a>
+                </Link>
               </li>
             </Reveal>
           ))}

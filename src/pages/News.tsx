@@ -26,9 +26,10 @@ export function NewsPage() {
   const categoryKeys = Object.keys(t("news.categories", { returnObjects: true }) as Record<string, string>);
   const [active, setActive] = useState<string | "all">("all");
 
+  const indexed = useMemo(() => items.map((item, index) => ({ item, index })), [items]);
   const filtered = useMemo(
-    () => (active === "all" ? items : items.filter((item) => item.category === active)),
-    [items, active]
+    () => (active === "all" ? indexed : indexed.filter(({ item }) => item.category === active)),
+    [indexed, active]
   );
 
   return (
@@ -102,10 +103,10 @@ export function NewsPage() {
         </Reveal>
 
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {filtered.map((item, i) => (
+          {filtered.map(({ item, index }, i) => (
             <Reveal key={item.title} delay={Math.min(i * 0.05, 0.3)}>
-              <a
-                href="#"
+              <Link
+                to={`/news/${index}`}
                 className="group flex h-full flex-col overflow-hidden rounded-[28px] bg-white ring-1 ring-[var(--color-line)] transition-shadow duration-300 hover:shadow-[var(--shadow-lift)]"
               >
                 <div className="relative aspect-[16/11] overflow-hidden">
@@ -136,7 +137,7 @@ export function NewsPage() {
                     <ArrowUpRight size={15} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </span>
                 </div>
-              </a>
+              </Link>
             </Reveal>
           ))}
         </div>
