@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Студенческий навигатор</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+/>
+<style>
+  :root {
+    --paper: #ffffff;
+    --mist: #f6f7f9;
+    --line: #e2e6ec;
+    --line-strong: #cfd5df;
+    --ink-900: #10182b;
+    --ink-700: #33405c;
+    --ink-500: #647089;
+    --ink-400: #8993a8;
+    --blue-50: #eef4fd;
+    --blue-100: #dbe8fb;
+    --blue-300: #93b3ea;
+    --blue-500: #3d6fd6;
+    --blue-600: #2c56c2;
+    --blue-700: #1f3f97;
+    --blue-900: #14294d;
+    --mint-50: #e9f7f1;
+    --mint-100: #d3f0e3;
+    --mint-500: #2f9e7c;
+    --mint-600: #23825f;
+    --sand-50: #faf4e9;
+    --sand-100: #f3e6cc;
+    --sand-400: #d9b77f;
+    --sand-600: #b3894a;
+    --font-display: "Manrope", "Inter", system-ui, sans-serif;
+    --font-body: "Inter", system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink-900);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2 { font-family: var(--font-display); letter-spacing: -0.02em; margin: 0; }
+  p, h1, h2, span, a { overflow-wrap: anywhere; }
+  a { color: inherit; }
+
+  .page { overflow: hidden; padding-bottom: 64px; }
+  @media (min-width: 768px) { .page { padding-bottom: 96px; } }
+
+  .wrap { width: 100%; max-width: 768px; margin-inline: auto; padding-inline: 20px; }
+  @media (min-width: 768px) { .wrap { padding-inline: 32px; } }
+
+  .hero-outer { position: relative; }
+  .blob { position: absolute; pointer-events: none; border-radius: 9999px; filter: blur(64px); }
+  .blob-1 { top: -96px; right: -8%; width: 420px; height: 420px; opacity: 0.6; background: radial-gradient(circle, var(--blue-100), transparent 70%); }
+  .blob-2 { top: 160px; left: -10%; width: 320px; height: 320px; opacity: 0.5; background: radial-gradient(circle, var(--sand-100), transparent 70%); }
+
+  .hero { position: relative; padding-top: 64px; }
+  @media (min-width: 768px) { .hero { padding-top: 80px; } }
+
+  .back-link {
+    display: flex; align-items: center; gap: 6px; width: fit-content;
+    margin-bottom: 40px; font-size: 14px; font-weight: 500; color: var(--ink-500);
+    text-decoration: none; transition: color .2s;
+  }
+  .back-link:hover { color: var(--ink-900); }
+
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .12em; color: var(--ink-500); margin-bottom: 16px; }
+  .eyebrow .dot { width: 6px; height: 6px; border-radius: 9999px; background: var(--sand-400); }
+
+  .hero-photo {
+    display: block; margin-bottom: -8px; width: 256px;
+    filter: drop-shadow(0 20px 20px rgba(16,24,43,.18));
+    animation: float-tilt 6s ease-in-out infinite;
+  }
+  @media (min-width: 640px) { .hero-photo { width: 320px; } }
+  @keyframes float-tilt {
+    0%, 100% { transform: rotate(-2deg) translateY(0); }
+    50% { transform: rotate(-2deg) translateY(-10px); }
+  }
+
+  .title { font-size: 36px; font-weight: 800; line-height: 1.1; color: var(--ink-900); }
+  @media (min-width: 640px) { .title { font-size: 48px; } }
+
+  .subtitle { margin-top: 16px; max-width: 448px; font-size: 19px; font-weight: 500; color: var(--blue-600); }
+
+  ol.steps { list-style: none; margin: 64px 0 0; padding: 0; }
+
+  .step { position: relative; display: flex; gap: 20px; padding-bottom: 64px; }
+  .step:last-child { padding-bottom: 0; }
+  @media (min-width: 640px) { .step { gap: 24px; padding-bottom: 80px; } }
+
+  .connector { position: absolute; left: 27px; top: 56px; bottom: 0; width: 3px; border-radius: 9999px; background: var(--line-strong); }
+  @media (min-width: 640px) { .connector { left: 31px; top: 64px; } }
+
+  .step-icon-wrap { position: relative; z-index: 10; display: flex; width: 56px; justify-content: center; flex-shrink: 0; }
+  @media (min-width: 640px) { .step-icon-wrap { width: 64px; } }
+
+  .step-icon { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 16px; }
+  @media (min-width: 640px) { .step-icon { width: 64px; height: 64px; } }
+  .step-icon svg { width: 28px; height: 28px; }
+
+  .tone-blue-icon { background: var(--blue-50); color: var(--blue-600); box-shadow: 0 0 0 1px var(--blue-100); }
+  .tone-mint-icon { background: var(--mint-50); color: var(--mint-600); box-shadow: 0 0 0 1px var(--mint-100); }
+  .tone-sand-icon { background: var(--sand-50); color: var(--sand-600); box-shadow: 0 0 0 1px var(--sand-100); }
+  .tone-blue-num { color: var(--blue-500); }
+  .tone-mint-num { color: var(--mint-600); }
+  .tone-sand-num { color: var(--sand-600); }
+  .tone-blue-dot { background: var(--blue-300); }
+  .tone-mint-dot { background: var(--mint-500); }
+  .tone-sand-dot { background: var(--sand-400); }
+  .tone-blue-note { background: var(--blue-50); color: var(--blue-700); }
+  .tone-mint-note { background: var(--mint-50); color: var(--mint-600); }
+  .tone-sand-note { background: var(--sand-50); color: var(--sand-600); }
+
+  .step-body { min-width: 0; flex: 1; padding-top: 4px; }
+  .step-head { display: flex; align-items: baseline; gap: 10px; }
+  .step-num { flex-shrink: 0; white-space: nowrap; font-size: 13px; font-weight: 700; }
+  .step-title { font-size: 19px; font-weight: 700; line-height: 1.35; color: var(--ink-900); }
+  @media (min-width: 640px) { .step-title { font-size: 21px; } }
+  .step-intro { margin-top: 12px; font-size: 15.5px; line-height: 1.6; color: var(--ink-700); }
+  .step-bullets-intro { margin-top: 16px; font-size: 13.5px; font-weight: 600; text-transform: uppercase; letter-spacing: .02em; color: var(--ink-400); }
+
+  .step-bullets { list-style: none; margin: 10px 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+  .step-bullets li { display: flex; gap: 10px; font-size: 15px; line-height: 1.6; color: var(--ink-700); }
+  .step-bullets li .dot { margin-top: 10px; width: 4px; height: 4px; border-radius: 9999px; flex-shrink: 0; }
+
+  .sub-block { margin-top: 16px; background: var(--mist); border-radius: 16px; padding: 16px; }
+  .sub-block .intro { font-size: 13.5px; font-weight: 600; color: var(--ink-700); margin: 0; }
+  .sub-block ul { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+  .sub-block li { display: flex; gap: 10px; font-size: 14px; line-height: 1.6; color: var(--ink-500); }
+  .sub-block li .dot { margin-top: 8px; width: 4px; height: 4px; border-radius: 9999px; background: var(--ink-400); flex-shrink: 0; }
+
+  .step-note { margin-top: 16px; display: inline-block; border-radius: 12px; padding: 12px 16px; font-size: 14px; line-height: 1.6; }
+
+  .banner { position: relative; margin-top: 16px; overflow: hidden; border-radius: 28px; padding: 32px; background: linear-gradient(135deg, #1f3f97 0%, #14294d 100%); }
+  @media (min-width: 640px) { .banner { padding: 40px; } }
+  .banner-row { display: flex; align-items: center; gap: 20px; }
+  @media (min-width: 640px) { .banner-row { gap: 32px; } }
+  .banner-row img { width: 64px; height: 64px; flex-shrink: 0; display: block; }
+  @media (min-width: 640px) { .banner-row img { width: 96px; height: 96px; } }
+  .banner h2 { font-size: 24px; font-weight: 800; color: #fff; }
+  @media (min-width: 640px) { .banner h2 { font-size: 30px; } }
+  .banner p { margin-top: 16px; max-width: 576px; font-size: 16px; line-height: 1.6; color: rgba(255,255,255,.75); }
+
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1); }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .hero-photo { animation: none; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <div class="hero-outer">
+      <div class="blob blob-1" aria-hidden="true"></div>
+      <div class="blob blob-2" aria-hidden="true"></div>
+
+      <div class="wrap hero">
+        <div class="reveal">
+          <a class="back-link" href="/">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+            Назад на главную
+          </a>
+
+          <span class="eyebrow"><span class="dot"></span>Студентам</span>
+
+          <img class="hero-photo" src="students.png" alt="Студенческий навигатор" />
+
+          <h1 class="title">Студенческий навигатор</h1>
+          <p class="subtitle">7 шагов для первокурсника</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <ol class="steps">
+      <li class="step reveal" style="transition-delay:0.00s">
+        <div class="connector" aria-hidden="true"></div>
+        <div class="step-icon-wrap">
+          <span class="step-icon tone-blue-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.75"/><path d="M14.6 9.4 13 13l-3.6 1.6L11 11l3.6-1.6Z" stroke-linejoin="round" fill="currentColor" fill-opacity="0.18"/><path d="M12 4.6v1.3M12 18.1v1.3M19.4 12h-1.3M5.9 12H4.6"/></svg>
+          </span>
+        </div>
+        <div class="step-body">
+          <div class="step-head">
+            <span class="step-num tone-blue-num">01</span>
+            <h2 class="step-title">Познакомься поближе с эдвайзером и куратором</h2>
+          </div>
+          <p class="step-intro">Твои первые помощники и ориентиры в университете — эдвайзер и куратор.</p>
+          <p class="step-bullets-intro">Они:</p>
+          <ul class="step-bullets"><li><span class="dot tone-blue-dot"></span>объясняют особенности учебного процесса</li><li><span class="dot tone-blue-dot"></span>помогают с выбором дисциплин</li><li><span class="dot tone-blue-dot"></span>поддерживают адаптацию к университетской жизни</li></ul>
+          
+          <p class="step-note tone-blue-note">Совет: если у тебя возник вопрос, не откладывай — обратись сразу.</p>
+        </div>
+      </li>
+
+      <li class="step reveal" style="transition-delay:0.05s">
+        <div class="connector" aria-hidden="true"></div>
+        <div class="step-icon-wrap">
+          <span class="step-icon tone-mint-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6.25" y="3.25" width="11.5" height="17.5" rx="2.6"/><path d="M9 7.3h6M9 10.6h6M9 13.9h3.4"/><circle cx="16.6" cy="6.4" r="1.4" fill="currentColor" stroke="none"/></svg>
+          </span>
+        </div>
+        <div class="step-body">
+          <div class="step-head">
+            <span class="step-num tone-mint-num">02</span>
+            <h2 class="step-title">Пользуйся Platonus каждый день!</h2>
+          </div>
+          <p class="step-intro">Основной цифровой ресурс университета — твой ежедневный помощник.</p>
+          <p class="step-bullets-intro">Здесь ты найдёшь:</p>
+          <ul class="step-bullets"><li><span class="dot tone-mint-dot"></span>расписание занятий</li><li><span class="dot tone-mint-dot"></span>программы дисциплин</li><li><span class="dot tone-mint-dot"></span>задания</li><li><span class="dot tone-mint-dot"></span>оценки</li><li><span class="dot tone-mint-dot"></span>учебные материалы</li></ul>
+          
+          <p class="step-note tone-mint-note">5 минут проверки помогут избежать спешки и неприятных сюрпризов в последний момент.</p>
+        </div>
+      </li>
+
+      <li class="step reveal" style="transition-delay:0.10s">
+        <div class="connector" aria-hidden="true"></div>
+        <div class="step-icon-wrap">
+          <span class="step-icon tone-sand-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.2c-1.7-1.2-4-1.7-6.3-1.4v13.3c2.3-.3 4.6.2 6.3 1.4 1.7-1.2 4-1.7 6.3-1.4V4.8c-2.3-.3-4.6.2-6.3 1.4Z"/><path d="M12 6.2v13.3"/><path d="M8 9h2.2M8 12h2.2"/></svg>
+          </span>
+        </div>
+        <div class="step-body">
+          <div class="step-head">
+            <span class="step-num tone-sand-num">03</span>
+            <h2 class="step-title">Библиотека — пространство для эффективной учёбы!</h2>
+          </div>
+          <p class="step-intro">Университетская библиотека — это не только место, где можно взять книгу.</p>
+          <p class="step-bullets-intro">Здесь есть:</p>
+          <ul class="step-bullets"><li><span class="dot tone-sand-dot"></span>читальные залы</li><li><span class="dot tone-sand-dot"></span>научная литература</li><li><span class="dot tone-sand-dot"></span>электронные ресурсы</li><li><span class="dot tone-sand-dot"></span>комфортная среда для самостоятельной работы</li></ul>
+          
+          <p class="step-note tone-sand-note">Хороший результат часто начинается с правильно организованного пространства.</p>
+        </div>
+      </li>
+
+      <li class="step reveal" style="transition-delay:0.15s">
+        <div class="connector" aria-hidden="true"></div>
+        <div class="step-icon-wrap">
+          <span class="step-icon tone-blue-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.4c2.4 1.9 3.7 4.8 3.7 8.1 0 2-.5 3.7-1.2 5l-2.5 2-2.5-2c-.7-1.3-1.2-3-1.2-5 0-3.3 1.3-6.2 3.7-8.1Z"/><circle cx="12" cy="10.6" r="1.6"/><path d="M8.5 13.4c-1.4.4-2.3 1.5-2.6 3.4 1.8-.2 3-.9 3.7-2.1M15.5 13.4c1.4.4 2.3 1.5 2.6 3.4-1.8-.2-3-.9-3.7-2.1"/><path d="M10.6 18.6c.3.8.8 1.4 1.4 1.9.6-.5 1.1-1.1 1.4-1.9"/></svg>
+          </span>
+        </div>
+        <div class="step-body">
+          <div class="step-head">
+            <span class="step-num tone-blue-num">04</span>
+            <h2 class="step-title">Будь активным студентом!</h2>
+          </div>
+          <p class="step-intro">В Аманжолов университете работает Комитет по делам молодёжи и множество студенческих организаций.</p>
+          <p class="step-bullets-intro">Выбери направление, которое тебе близко:</p>
+          <ul class="step-bullets"><li><span class="dot tone-blue-dot"></span>SHABYT — студенческий театр</li><li><span class="dot tone-blue-dot"></span>DILMAR — дебатный клуб</li><li><span class="dot tone-blue-dot"></span>MEYIRIM и SHUAQ — волонтёрские организации</li><li><span class="dot tone-blue-dot"></span>THE GREEN WAVE</li><li><span class="dot tone-blue-dot"></span>Mind Matters Club</li><li><span class="dot tone-blue-dot"></span>Oqyrman и другие организации</li></ul>
+          
+          <p class="step-note tone-blue-note">Участие в одной организации может открыть десятки новых возможностей.</p>
+        </div>
+      </li>
+
+      <li class="step reveal" style="transition-delay:0.20s">
+        <div class="connector" aria-hidden="true"></div>
+        <div class="step-icon-wrap">
+          <span class="step-icon tone-mint-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15.2 9.7 13c-1-.9-1-2.4-.1-3.3.9-.9 2.3-.8 3.2.1l1.2 1.2 1.2-1.2c.9-.9 2.3-1 3.2-.1.9.9.9 2.4-.1 3.3l-3.7 3.5Z"/><path d="M4.6 15.6c1.4 1.7 3.4 2.9 5.8 3.2M4.2 12.4c-.2-3.6 2.2-6.6 5.6-6.9"/><path d="M5.6 18.2 4 19.7l-.4-2.3 1.9-1.8Z"/></svg>
+          </span>
+        </div>
+        <div class="step-body">
+          <div class="step-head">
+            <span class="step-num tone-mint-num">05</span>
+            <h2 class="step-title">Не бойся обращаться за помощью!</h2>
+          </div>
+          <p class="step-intro">Ты не обязан решать любую проблему самостоятельно.</p>
+          <p class="step-bullets-intro">В университете работают:</p>
+          <ul class="step-bullets"><li><span class="dot tone-mint-dot"></span>психологическая служба</li><li><span class="dot tone-mint-dot"></span>отдел воспитательной работы и социальных вопросов</li><li><span class="dot tone-mint-dot"></span>эдвайзеры и кураторы</li></ul>
+          <div class="sub-block">
+          <p class="intro">Обращение к психологу:</p>
+          <ul><li><span class="dot"></span>конфиденциально</li><li><span class="dot"></span>безопасно</li><li><span class="dot"></span>осуществляется по предварительной записи</li></ul>
+        </div>
+          <p class="step-note tone-mint-note">Просить о помощи — не слабость, а правильное решение.</p>
+        </div>
+      </li>
+
+      <li class="step reveal" style="transition-delay:0.25s">
+        <div class="connector" aria-hidden="true"></div>
+        <div class="step-icon-wrap">
+          <span class="step-icon tone-sand-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.6 18.4 6v5.1c0 4.2-2.7 7.2-6.4 8.3-3.7-1.1-6.4-4.1-6.4-8.3V6L12 3.6Z"/><path d="M9.2 12.1 11.3 14l3.5-4"/></svg>
+          </span>
+        </div>
+        <div class="step-body">
+          <div class="step-head">
+            <span class="step-num tone-sand-num">06</span>
+            <h2 class="step-title">Твоя безопасность — в твоих руках!</h2>
+          </div>
+          <p class="step-intro">Три правила, которые должен помнить каждый студент:</p>
+          
+          <ul class="step-bullets"><li><span class="dot tone-sand-dot"></span>не передавай личные данные посторонним</li><li><span class="dot tone-sand-dot"></span>никому не сообщай банковские коды</li><li><span class="dot tone-sand-dot"></span>не доверяй подозрительным сообщениям и сомнительным предложениям о работе</li></ul>
+          
+          <p class="step-note tone-sand-note">Также соблюдай правила внутреннего распорядка университета и требования безопасности.</p>
+        </div>
+      </li>
+
+      <li class="step reveal" style="transition-delay:0.30s">
+        
+        <div class="step-icon-wrap">
+          <span class="step-icon tone-blue-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m12 5.4 7.6 3.4-7.6 3.4-7.6-3.4L12 5.4Z" stroke-linejoin="round"/><path d="M7.6 10.4v3.4c0 1.4 2 2.6 4.4 2.6s4.4-1.2 4.4-2.6v-3.4"/><path d="M19.6 8.8v4.3"/><path d="M17.3 16.6c.4.5.9.8 1.5.8s1.1-.3 1.5-.8"/></svg>
+          </span>
+        </div>
+        <div class="step-body">
+          <div class="step-head">
+            <span class="step-num tone-blue-num">07</span>
+            <h2 class="step-title">Воспринимай университет как пространство возможностей!</h2>
+          </div>
+          <p class="step-intro">Аманжолов университет предоставляет студентам возможности для:</p>
+          
+          <ul class="step-bullets"><li><span class="dot tone-blue-dot"></span>академической мобильности</li><li><span class="dot tone-blue-dot"></span>участия в научных кружках</li><li><span class="dot tone-blue-dot"></span>реализации студенческих проектов</li><li><span class="dot tone-blue-dot"></span>карьерного развития</li></ul>
+          
+          <p class="step-note tone-blue-note">Твоя активность сегодня — основа твоих достижений завтра.</p>
+        </div>
+      </li>
+      </ol>
+
+      <div class="banner reveal" style="transition-delay:.1s">
+        <div class="banner-row">
+          <img src="bulb.png" alt="" />
+          <div>
+            <h2>Запомни!</h2>
+            <p>Университет — это не только место, где получают диплом. Это пространство, где ты находишь себя, обретаешь друзей, получаешь опыт и формируешь своё будущее.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var els = document.querySelectorAll(".reveal");
+      if (!("IntersectionObserver" in window)) {
+        els.forEach(function (el) { el.classList.add("is-visible"); });
+        return;
+      }
+      var observer = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { rootMargin: "-60px 0px -60px 0px" }
+      );
+      els.forEach(function (el) { observer.observe(el); });
+    })();
+  </script>
+</body>
+</html>
