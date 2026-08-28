@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { Container } from "../components/ui/Container";
 import { Eyebrow } from "../components/ui/SectionHeading";
-import { Photo } from "../components/ui/Photo";
 import { Reveal } from "../components/ui/Reveal";
 import {
   StepIcon,
@@ -52,23 +51,18 @@ export function StudentNavigator() {
               {t("studentNavigator.backLink")}
             </Link>
 
+            <img
+              src={`${import.meta.env.BASE_URL}students.png`}
+              alt={t("studentNavigator.title")}
+              className="-mb-2 w-64 -rotate-2 drop-shadow-xl sm:w-80 animate-float"
+            />
+
             <Eyebrow tone="sand" className="mb-4">
               {t("studentNavigator.eyebrow")}
             </Eyebrow>
-            <div className="relative w-fit">
-              <div className="absolute -top-24 left-44 w-28 -rotate-6 sm:-top-32 sm:left-64 sm:w-36 animate-float">
-                <Photo
-                  src="students.jpg"
-                  alt={t("studentNavigator.title")}
-                  rounded="lg"
-                  className="aspect-[4/3] shadow-[var(--shadow-lift)] ring-4 ring-white"
-                />
-              </div>
-
-              <h1 className="text-balance font-display text-4xl font-extrabold leading-[1.1] text-[var(--color-ink-900)] sm:text-5xl">
-                {t("studentNavigator.title")}
-              </h1>
-            </div>
+            <h1 className="text-balance font-display text-4xl font-extrabold leading-[1.1] text-[var(--color-ink-900)] sm:text-5xl">
+              {t("studentNavigator.title")}
+            </h1>
             <p className="mt-4 max-w-md text-[19px] font-medium text-[var(--color-blue-600)]">
               {t("studentNavigator.subtitle")}
             </p>
@@ -149,10 +143,8 @@ export function StudentNavigator() {
             style={{ background: "linear-gradient(135deg, #1f3f97 0%, #14294d 100%)" }}
           >
             <div className="text-center">
-              <div className="mx-auto grid h-20 w-20 place-items-center overflow-hidden rounded-full ring-4 ring-white/15">
-                <Photo src="bulb.jpg" alt="" className="h-full w-full" />
-              </div>
-              <h2 className="mt-5 font-display text-2xl font-extrabold text-white sm:text-3xl">
+              <img src={`${import.meta.env.BASE_URL}bulb.png`} alt="" className="mx-auto h-20 w-20" />
+              <h2 className="mt-3 font-display text-2xl font-extrabold text-white sm:text-3xl">
                 {t("studentNavigator.finalTitle")}
               </h2>
               <p className="mx-auto mt-4 max-w-xl text-[16px] leading-relaxed text-white/75">
