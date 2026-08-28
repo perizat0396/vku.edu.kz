@@ -11,7 +11,7 @@ import { cn } from "../../lib/cn";
 const BASE = import.meta.env.BASE_URL;
 
 type NavChild = { key: string; href?: string; to?: string };
-type NavItem = { key: string; href?: string; children?: NavChild[] };
+type NavItem = { key: string; href?: string; to?: string; children?: NavChild[] };
 
 const NAV_ITEMS: NavItem[] = [
   { key: "university", href: `${BASE}#top` },
@@ -26,7 +26,7 @@ const NAV_ITEMS: NavItem[] = [
   },
   { key: "admission", href: `${BASE}#admission` },
   { key: "cooperation", href: `${BASE}#partners` },
-  { key: "news", href: `${BASE}#news` },
+  { key: "news", to: "/news" },
   { key: "digest", href: `${BASE}#news` },
   { key: "contacts", href: `${BASE}#site-footer` },
 ];
@@ -109,13 +109,11 @@ export function Header() {
                 </div>
               </div>
             ) : (
-              <a
+              <ChildLink
                 key={item.key}
-                href={item.href}
+                item={item}
                 className="whitespace-nowrap rounded-full px-3 py-2 text-[13.5px] font-medium text-[var(--color-ink-700)] transition-colors hover:bg-[var(--color-mist)] hover:text-[var(--color-ink-900)]"
-              >
-                {t(`nav.${item.key}`)}
-              </a>
+              />
             )
           )}
         </nav>
@@ -231,14 +229,12 @@ export function Header() {
                       </AnimatePresence>
                     </div>
                   ) : (
-                    <a
+                    <ChildLink
                       key={item.key}
-                      href={item.href}
+                      item={item}
                       onClick={() => setMenuOpen(false)}
                       className="rounded-xl px-3 py-3.5 text-[17px] font-semibold text-[var(--color-ink-900)] transition-colors hover:bg-[var(--color-mist)]"
-                    >
-                      {t(`nav.${item.key}`)}
-                    </a>
+                    />
                   )
                 )}
               </nav>

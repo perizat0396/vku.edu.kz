@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import { ArrowRight, Megaphone } from "lucide-react";
 import { Eyebrow } from "../ui/SectionHeading";
 import { cn } from "../../lib/cn";
@@ -86,6 +87,14 @@ export function AnnouncementsPanel() {
           </li>
         ))}
       </ul>
+
+      <Link
+        to="/announcements"
+        className="mt-5 inline-flex items-center gap-1.5 self-start text-[13.5px] font-semibold text-white/70 transition-colors hover:text-white"
+      >
+        {t("announcements.viewAll")}
+        <ArrowRight size={14} />
+      </Link>
     </aside>
   );
 }

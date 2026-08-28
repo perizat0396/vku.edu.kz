@@ -7,7 +7,8 @@
     "viewAll": "All news",
     "learnMore": "Learn more",
     "readMore": "Read more",
-    "close": "Close"
+    "close": "Close",
+    "backToHome": "Back to homepage"
   },
   "admissionBar": {
     "text": "Admissions for 2026/2027 are open",
@@ -73,6 +74,7 @@
   "news": {
     "eyebrow": "Stay updated",
     "title": "University news",
+    "pageSubtitle": "All university news and updates in one place.",
     "viewAll": "All news",
     "categories": {
       "science": "Science",
@@ -111,6 +113,8 @@
   "announcements": {
     "eyebrow": "Don't miss out",
     "title": "Announcements",
+    "pageSubtitle": "Current notices on academics, scholarships and events.",
+    "viewAll": "All announcements",
     "filterAll": "All",
     "categories": {
       "academic": "Academic",

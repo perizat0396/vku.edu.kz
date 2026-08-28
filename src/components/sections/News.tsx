@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight, Newspaper } from "lucide-react";
 import { Container } from "../ui/Container";
 import { SectionHeading } from "../ui/SectionHeading";
@@ -33,13 +34,13 @@ export function News() {
               title={t("news.title")}
               action={
                 <div className="flex items-center gap-5">
-                  <a
-                    href="#"
+                  <Link
+                    to="/news"
                     className="inline-flex items-center gap-1.5 text-[15px] font-semibold text-[var(--color-blue-600)] transition-colors hover:text-[var(--color-blue-700)]"
                   >
                     {t("news.viewAll")}
                     <ArrowRight size={16} />
-                  </a>
+                  </Link>
                   <a
                     href="#"
                     className="inline-flex items-center gap-1.5 text-[15px] font-semibold text-[var(--color-ink-500)] transition-colors hover:text-[var(--color-ink-900)]"

@@ -7,6 +7,8 @@ import { Footer } from "./components/layout/Footer";
 import { ScrollToTop } from "./components/layout/ScrollToTop";
 import { Home } from "./pages/Home";
 import { StudentNavigator } from "./pages/StudentNavigator";
+import { NewsPage } from "./pages/News";
+import { Announcements } from "./pages/Announcements";
 
 function DocumentMeta() {
   const { i18n, t } = useTranslation();
@@ -30,6 +32,8 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/students/navigator" element={<StudentNavigator />} />
+          <Route path="/news" element={<NewsPage />} />
+          <Route path="/announcements" element={<Announcements />} />
         </Routes>
       </main>
       <Footer />
