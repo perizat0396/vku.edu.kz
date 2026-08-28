@@ -51,15 +51,16 @@ export function StudentNavigator() {
               {t("studentNavigator.backLink")}
             </Link>
 
+            <Eyebrow tone="sand" className="mb-4">
+              {t("studentNavigator.eyebrow")}
+            </Eyebrow>
+
             <img
               src={`${import.meta.env.BASE_URL}students.png`}
               alt={t("studentNavigator.title")}
               className="-mb-2 w-64 -rotate-2 drop-shadow-xl sm:w-80 animate-float"
             />
 
-            <Eyebrow tone="sand" className="mb-4">
-              {t("studentNavigator.eyebrow")}
-            </Eyebrow>
             <h1 className="text-balance font-display text-4xl font-extrabold leading-[1.1] text-[var(--color-ink-900)] sm:text-5xl">
               {t("studentNavigator.title")}
             </h1>
@@ -77,7 +78,7 @@ export function StudentNavigator() {
             const iconId = STEP_ICON_ORDER[i % STEP_ICON_ORDER.length];
             return (
               <Reveal key={step.title} delay={Math.min(i * 0.05, 0.3)}>
-                <li className="relative flex gap-5 pb-12 last:pb-0 sm:gap-6">
+                <li className="relative flex gap-5 pb-16 last:pb-0 sm:gap-6 sm:pb-20">
                   {i < steps.length - 1 && (
                     <div
                       className="absolute bottom-0 left-[27px] top-[56px] w-[3px] rounded-full bg-[var(--color-line-strong)] sm:left-[31px] sm:top-16"
