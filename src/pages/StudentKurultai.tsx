@@ -44,15 +44,7 @@ const SOLID_TEXT: Record<Tone, string> = {
 
 const CARD_TILT = ["-rotate-2", "rotate-2", "-rotate-1"];
 
-function initials(name: string) {
-  return name
-    .split(" ")
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((w) => w[0])
-    .join("")
-    .toUpperCase();
-}
+const LEADER_PHOTOS = ["kurultai-leader-1.jpg", "kurultai-leader-2.jpg", "kurultai-leader-3.jpg"];
 
 type Task = { title: string; description: string };
 type Leader = { name: string; role: string; spec: string; phone: string; email: string };
@@ -254,8 +246,12 @@ export function StudentKurultai() {
                   )}
                 >
                   <div className={cn("absolute inset-x-0 top-0 h-16", SOLID_BG[tone])} aria-hidden />
-                  <span className="relative z-10 mx-auto grid h-20 w-20 place-items-center rounded-full border-4 border-white bg-white font-display text-xl font-extrabold text-[var(--color-ink-900)] shadow-[var(--shadow-soft)]">
-                    {initials(leader.name)}
+                  <span className="relative z-10 mx-auto block h-20 w-20 overflow-hidden rounded-full border-4 border-white bg-white shadow-[var(--shadow-soft)]">
+                    <img
+                      src={`${import.meta.env.BASE_URL}${LEADER_PHOTOS[i % LEADER_PHOTOS.length]}`}
+                      alt={leader.name}
+                      className={cn("h-full w-full object-cover", i === 0 ? "object-center" : "object-top")}
+                    />
                   </span>
                   <div className="flex flex-1 flex-col px-6 pb-6">
                     <h3 className="mt-4 font-display text-[17px] font-bold leading-snug text-[var(--color-ink-900)]">
