@@ -54,17 +54,6 @@ export function NewsArticle() {
             {t("news.viewAll")}
           </Link>
 
-          <div className="relative mb-8 aspect-[16/9] overflow-hidden rounded-[28px]">
-            <PatternArt
-              theme={tone === "ink" ? "ink" : tone}
-              icon={<Newspaper />}
-              label=""
-              showLabel={false}
-              rounded="xl"
-              className="h-full w-full"
-            />
-          </div>
-
           <div className="flex items-center gap-2.5">
             <CategoryPill tone={tone}>{t(`news.categories.${item.category}`)}</CategoryPill>
             <time className="text-[13px] text-[var(--color-ink-400)]" dateTime={item.date}>
@@ -77,6 +66,17 @@ export function NewsArticle() {
           </h1>
 
           <p className="mt-6 text-[18px] leading-relaxed text-[var(--color-ink-700)]">{item.excerpt}</p>
+
+          <div className="relative mt-8 aspect-[21/9] overflow-hidden rounded-2xl">
+            <PatternArt
+              theme={tone === "ink" ? "ink" : tone}
+              icon={<Newspaper />}
+              label=""
+              showLabel={false}
+              rounded="lg"
+              className="h-full w-full"
+            />
+          </div>
         </Reveal>
       </Container>
     </div>

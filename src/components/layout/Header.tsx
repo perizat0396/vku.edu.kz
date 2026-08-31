@@ -25,9 +25,6 @@ const NAV_ITEMS: NavItem[] = [
     ],
   },
   { key: "admission", href: `${BASE}#admission` },
-  { key: "cooperation", href: `${BASE}#partners` },
-  { key: "news", to: "/news" },
-  { key: "digest", href: `${BASE}#news` },
   { key: "contacts", href: `${BASE}#site-footer` },
 ];
 
@@ -70,7 +67,7 @@ export function Header() {
       className={cn(
         "sticky top-0 z-50 w-full transition-all duration-300",
         scrolled
-          ? "border-b border-[var(--color-line)] bg-white/80 backdrop-blur-lg"
+          ? "border-b border-[var(--color-line)] bg-white/90 shadow-[0_4px_20px_-4px_rgba(16,24,43,0.12)] backdrop-blur-lg"
           : "border-b border-transparent bg-white/0"
       )}
     >
