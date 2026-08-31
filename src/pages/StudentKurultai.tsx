@@ -121,43 +121,21 @@ export function StudentKurultai() {
       </div>
 
       <Container className="max-w-3xl">
-        {/* Mission — bold gradient banner with a big pull-quote treatment */}
+        {/* Mission — full-width statement with a colorful accent bar */}
         <Reveal>
-          <div
-            className="relative mt-14 overflow-hidden rounded-[32px] p-8 sm:p-12"
-            style={{
-              background:
-                "linear-gradient(120deg, var(--color-blue-700) 0%, var(--color-blue-600) 45%, var(--color-mint-600) 100%)",
-            }}
-          >
+          <div className="relative mt-14 pl-7 sm:pl-10">
             <div
-              className="pointer-events-none absolute inset-0 opacity-[0.07]"
+              className="absolute bottom-0 left-0 top-0 w-1.5 rounded-full sm:w-2"
               style={{
-                backgroundImage: "radial-gradient(circle, #ffffff 1.5px, transparent 1.5px)",
-                backgroundSize: "18px 18px",
+                background:
+                  "linear-gradient(180deg, var(--color-blue-600) 0%, var(--color-mint-600) 50%, var(--color-sand-600) 100%)",
               }}
               aria-hidden
             />
-            <svg
-              className="pointer-events-none absolute -right-12 -top-12 h-56 w-56 rotate-12 text-white/[0.1]"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1"
-              aria-hidden
-            >
-              <path d="m12 5.4 7.6 3.4-7.6 3.4-7.6-3.4L12 5.4Z" strokeLinejoin="round" />
-              <path d="M7.6 10.4v3.4c0 1.4 2 2.6 4.4 2.6s4.4-1.2 4.4-2.6v-3.4" />
-            </svg>
-
-            <p className="relative select-none font-display text-[90px] font-black leading-none text-white/15 sm:text-[120px]">
-              &ldquo;
-            </p>
-
-            <span className="relative -mt-10 block text-[13px] font-bold uppercase tracking-[0.16em] text-white/70 sm:-mt-14">
+            <span className="inline-block -rotate-2 rounded-full bg-[var(--color-blue-600)] px-4 py-1.5 text-[13px] font-bold uppercase tracking-wide text-white shadow-[var(--shadow-soft)]">
               {t("studentKurultai.missionLabel")}
             </span>
-            <p className="relative mt-3 max-w-2xl text-balance font-display text-[24px] font-bold leading-[1.35] text-white sm:text-[30px]">
+            <p className="mt-5 text-balance font-display text-[26px] font-extrabold leading-[1.35] text-[var(--color-ink-900)] sm:text-[34px]">
               {t("studentKurultai.missionText")}
             </p>
           </div>
