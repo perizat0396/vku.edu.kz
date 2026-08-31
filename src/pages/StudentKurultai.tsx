@@ -2,7 +2,6 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import {
   ArrowLeft,
-  Sparkles,
   TrendingUp,
   Users,
   FilePen,
@@ -151,11 +150,7 @@ export function StudentKurultai() {
               <path d="M7.6 10.4v3.4c0 1.4 2 2.6 4.4 2.6s4.4-1.2 4.4-2.6v-3.4" />
             </svg>
 
-            <span className="relative grid h-14 w-14 place-items-center rounded-2xl bg-white text-[var(--color-blue-600)] shadow-[var(--shadow-lift)]">
-              <Sparkles size={24} />
-            </span>
-
-            <p className="relative mt-6 select-none font-display text-[90px] font-black leading-none text-white/15 sm:text-[120px]">
+            <p className="relative select-none font-display text-[90px] font-black leading-none text-white/15 sm:text-[120px]">
               &ldquo;
             </p>
 
