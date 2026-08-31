@@ -30,24 +30,16 @@ import { cn } from "../lib/cn";
 type Tone = "blue" | "mint" | "sand";
 const TONE_ORDER: Tone[] = ["blue", "mint", "sand"];
 
-const TILE_TONE: Record<Tone, string> = {
+const SOLID_BG: Record<Tone, string> = {
   blue: "bg-[var(--color-blue-600)]",
   mint: "bg-[var(--color-mint-600)]",
   sand: "bg-[var(--color-sand-600)]",
 };
 
-const TILE_ROTATE = ["-rotate-1", "rotate-1", "-rotate-1", "rotate-1"];
-
-const CHIP_TONE: Record<Tone, string> = {
-  blue: "bg-[var(--color-blue-600)]",
-  mint: "bg-[var(--color-mint-600)]",
-  sand: "bg-[var(--color-sand-600)]",
-};
-
-const BAND_TONE: Record<Tone, string> = {
-  blue: "bg-[var(--color-blue-600)]",
-  mint: "bg-[var(--color-mint-600)]",
-  sand: "bg-[var(--color-sand-600)]",
+const SOLID_TEXT: Record<Tone, string> = {
+  blue: "text-[var(--color-blue-600)]",
+  mint: "text-[var(--color-mint-600)]",
+  sand: "text-[var(--color-sand-600)]",
 };
 
 const CARD_TILT = ["-rotate-2", "rotate-2", "-rotate-1"];
@@ -69,6 +61,15 @@ type ManagementItem = { title: string; textBefore: string; textBold: string; tex
 const TASK_ICONS = [TrendingUp, Users, FilePen, MessagesSquare, ShieldCheck, Landmark, CalendarCheck, GraduationCap];
 const FUNCTION_ICONS = [Lightbulb, UserCheck, Rocket, Handshake, ListChecks];
 const STRUCTURE_ICONS = [Network, School, HomeIcon, UserCog];
+
+function SectionLabel({ children, tone = "blue" }: { children: string; tone?: Tone }) {
+  return (
+    <h2 className="flex items-center gap-3 font-display text-[13px] font-bold uppercase tracking-[0.16em] text-[var(--color-ink-400)]">
+      <span className={cn("h-2.5 w-2.5 rounded-full", SOLID_BG[tone])} aria-hidden />
+      {children}
+    </h2>
+  );
+}
 
 export function StudentKurultai() {
   const { t } = useTranslation();
@@ -121,58 +122,43 @@ export function StudentKurultai() {
       </div>
 
       <Container className="max-w-3xl">
-        {/* Mission — full-width statement with a colorful accent bar */}
+        {/* Mission — pure typography, no box */}
         <Reveal>
-          <div className="relative mt-14 pl-7 sm:pl-10">
-            <div
-              className="absolute bottom-0 left-0 top-0 w-1.5 rounded-full sm:w-2"
-              style={{
-                background:
-                  "linear-gradient(180deg, var(--color-blue-600) 0%, var(--color-mint-600) 50%, var(--color-sand-600) 100%)",
-              }}
-              aria-hidden
-            />
-            <span className="inline-block -rotate-2 rounded-full bg-[var(--color-blue-600)] px-4 py-1.5 text-[13px] font-bold uppercase tracking-wide text-white shadow-[var(--shadow-soft)]">
-              {t("studentKurultai.missionLabel")}
-            </span>
-            <p className="mt-5 text-balance font-display text-[26px] font-extrabold leading-[1.35] text-[var(--color-ink-900)] sm:text-[34px]">
-              {t("studentKurultai.missionText")}
-            </p>
-          </div>
+          <p className="mt-16 font-display text-[13px] font-bold uppercase tracking-[0.2em] text-[var(--color-blue-600)]">
+            {t("studentKurultai.missionLabel")}
+          </p>
+          <p className="mt-4 text-balance font-display text-[30px] font-black leading-[1.25] text-[var(--color-ink-900)] sm:text-[44px]">
+            {t("studentKurultai.missionText")}
+          </p>
         </Reveal>
 
-        {/* Tasks — saturated color tiles */}
+        {/* Tasks — numbered manifesto rows */}
         <Reveal>
-          <h2 className="mt-16 font-display text-2xl font-extrabold text-[var(--color-ink-900)] sm:text-3xl">
-            {t("studentKurultai.tasksLabel")}
-          </h2>
+          <div className="mt-20">
+            <SectionLabel tone="blue">{t("studentKurultai.tasksLabel")}</SectionLabel>
+          </div>
         </Reveal>
-        <div className="mt-7 grid gap-5 sm:grid-cols-2">
+        <div className="mt-2 flex flex-col border-t border-[var(--color-line)]">
           {tasks.map((task, i) => {
             const tone = TONE_ORDER[i % TONE_ORDER.length];
+            const Icon = TASK_ICONS[i % TASK_ICONS.length];
             return (
-              <Reveal key={task.title} delay={Math.min(i * 0.04, 0.24)}>
-                <div
-                  className={cn(
-                    "relative h-full overflow-hidden rounded-[26px] p-6 text-white shadow-[var(--shadow-soft)] transition-transform duration-300 hover:-translate-y-1 hover:rotate-0",
-                    TILE_TONE[tone],
-                    TILE_ROTATE[i % TILE_ROTATE.length]
-                  )}
-                >
-                  <span
-                    className="pointer-events-none absolute -right-2 -top-5 select-none font-display text-[88px] font-black leading-none text-white/[0.13]"
-                    aria-hidden
-                  >
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="relative grid h-11 w-11 place-items-center rounded-2xl bg-white text-[var(--color-ink-900)]">
-                    {(() => {
-                      const Icon = TASK_ICONS[i % TASK_ICONS.length];
-                      return <Icon size={20} />;
-                    })()}
-                  </span>
-                  <h3 className="relative mt-4 font-display text-[17px] font-bold leading-snug">{task.title}</h3>
-                  <p className="relative mt-1.5 text-[14.5px] leading-relaxed text-white/85">{task.description}</p>
+              <Reveal key={task.title} delay={Math.min(i * 0.03, 0.24)}>
+                <div className="flex flex-col gap-4 border-b border-[var(--color-line)] py-7 sm:flex-row sm:items-center sm:gap-8">
+                  <div className="flex shrink-0 items-center gap-4 sm:w-[168px]">
+                    <span className={cn("select-none font-display text-[40px] font-black leading-none", SOLID_TEXT[tone])}>
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className={cn("grid h-11 w-11 shrink-0 place-items-center rounded-2xl text-white", SOLID_BG[tone])}>
+                      <Icon size={19} />
+                    </span>
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="font-display text-[18px] font-bold leading-snug text-[var(--color-ink-900)]">
+                      {task.title}
+                    </h3>
+                    <p className="mt-1.5 text-[15px] leading-relaxed text-[var(--color-ink-500)]">{task.description}</p>
+                  </div>
                 </div>
               </Reveal>
             );
@@ -181,12 +167,12 @@ export function StudentKurultai() {
 
         {/* Functions — colored chips */}
         <Reveal>
-          <h2 className="mt-16 font-display text-2xl font-extrabold text-[var(--color-ink-900)] sm:text-3xl">
-            {t("studentKurultai.functionsLabel")}
-          </h2>
+          <div className="mt-20">
+            <SectionLabel tone="mint">{t("studentKurultai.functionsLabel")}</SectionLabel>
+          </div>
         </Reveal>
         <Reveal delay={0.05}>
-          <div className="mt-7 flex flex-wrap gap-3">
+          <div className="mt-6 flex flex-wrap gap-3">
             {functions.map((fn, i) => {
               const Icon = FUNCTION_ICONS[i % FUNCTION_ICONS.length];
               const tone = TONE_ORDER[i % TONE_ORDER.length];
@@ -195,7 +181,7 @@ export function StudentKurultai() {
                   key={fn}
                   className={cn(
                     "inline-flex items-center gap-2.5 rounded-full px-4.5 py-2.5 text-[14px] font-semibold text-white shadow-[var(--shadow-soft)]",
-                    CHIP_TONE[tone]
+                    SOLID_BG[tone]
                   )}
                 >
                   <Icon size={16} />
@@ -206,27 +192,23 @@ export function StudentKurultai() {
           </div>
         </Reveal>
 
-        {/* Organizational structure — connected row */}
+        {/* Organizational structure — floating icons, no boxes */}
         <Reveal>
-          <h2 className="mt-16 font-display text-2xl font-extrabold text-[var(--color-ink-900)] sm:text-3xl">
-            {t("studentKurultai.structureLabel")}
-          </h2>
+          <div className="mt-20">
+            <SectionLabel tone="sand">{t("studentKurultai.structureLabel")}</SectionLabel>
+          </div>
         </Reveal>
-        <div className="relative mt-7 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          <div
-            className="pointer-events-none absolute left-0 right-0 top-8 hidden border-t-2 border-dashed border-[var(--color-line-strong)] lg:block"
-            aria-hidden
-          />
+        <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4">
           {structure.map((label, i) => {
             const tone = TONE_ORDER[i % TONE_ORDER.length];
             const Icon = STRUCTURE_ICONS[i % STRUCTURE_ICONS.length];
             return (
               <Reveal key={label} delay={Math.min(i * 0.04, 0.16)}>
-                <div className="relative flex h-full flex-col items-center gap-3 rounded-[22px] border border-[var(--color-line)] bg-white p-6 text-center">
-                  <span className={cn("relative z-10 grid h-14 w-14 place-items-center rounded-2xl text-white shadow-[var(--shadow-soft)]", BAND_TONE[tone])}>
-                    <Icon size={24} />
+                <div className="flex flex-col items-center gap-3 text-center">
+                  <span className={cn("grid h-16 w-16 place-items-center rounded-full text-white shadow-[var(--shadow-lift)]", SOLID_BG[tone])}>
+                    <Icon size={26} />
                   </span>
-                  <h3 className="font-display text-[15px] font-bold leading-snug text-[var(--color-ink-900)]">{label}</h3>
+                  <p className="font-display text-[14px] font-bold leading-snug text-[var(--color-ink-900)]">{label}</p>
                 </div>
               </Reveal>
             );
@@ -235,22 +217,22 @@ export function StudentKurultai() {
 
         {/* Leadership — badge cards */}
         <Reveal>
-          <h2 className="mt-16 font-display text-2xl font-extrabold text-[var(--color-ink-900)] sm:text-3xl">
-            {t("studentKurultai.leadersLabel")}
-          </h2>
+          <div className="mt-20">
+            <SectionLabel tone="blue">{t("studentKurultai.leadersLabel")}</SectionLabel>
+          </div>
         </Reveal>
-        <div className="mt-7 grid gap-8 pt-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-8 pt-6 sm:grid-cols-2 lg:grid-cols-3">
           {leaders.map((leader, i) => {
             const tone = TONE_ORDER[i % TONE_ORDER.length];
             return (
               <Reveal key={leader.name} delay={Math.min(i * 0.05, 0.2)}>
                 <div
                   className={cn(
-                    "group relative flex h-full flex-col overflow-hidden rounded-[26px] border border-[var(--color-line)] bg-white pt-10 text-center shadow-[var(--shadow-soft)] transition-transform duration-300 hover:-translate-y-1 hover:rotate-0",
+                    "group relative flex h-full flex-col overflow-hidden rounded-[26px] bg-white pt-10 text-center shadow-[var(--shadow-lift)] transition-transform duration-300 hover:-translate-y-1 hover:rotate-0",
                     CARD_TILT[i % CARD_TILT.length]
                   )}
                 >
-                  <div className={cn("absolute inset-x-0 top-0 h-16", BAND_TONE[tone])} aria-hidden />
+                  <div className={cn("absolute inset-x-0 top-0 h-16", SOLID_BG[tone])} aria-hidden />
                   <span className="relative z-10 mx-auto grid h-20 w-20 place-items-center rounded-full border-4 border-white bg-white font-display text-xl font-extrabold text-[var(--color-ink-900)] shadow-[var(--shadow-soft)]">
                     {initials(leader.name)}
                   </span>
@@ -258,7 +240,7 @@ export function StudentKurultai() {
                     <h3 className="mt-4 font-display text-[17px] font-bold leading-snug text-[var(--color-ink-900)]">
                       {leader.name}
                     </h3>
-                    <p className="mt-1.5 text-[12.5px] font-semibold uppercase tracking-wide text-[var(--color-blue-600)]">
+                    <p className={cn("mt-1.5 text-[12.5px] font-semibold uppercase tracking-wide", SOLID_TEXT[tone])}>
                       {leader.role}
                     </p>
                     <p className="mt-2.5 inline-block self-center rounded-full bg-[var(--color-mist)] px-3.5 py-1.5 text-[13px] text-[var(--color-ink-500)]">
@@ -287,28 +269,31 @@ export function StudentKurultai() {
           })}
         </div>
 
-        {/* Management structure */}
+        {/* Management structure — matching numeral treatment */}
         <Reveal>
-          <h2 className="mt-16 font-display text-2xl font-extrabold text-[var(--color-ink-900)] sm:text-3xl">
-            {t("studentKurultai.managementLabel")}
-          </h2>
+          <div className="mt-20">
+            <SectionLabel tone="mint">{t("studentKurultai.managementLabel")}</SectionLabel>
+          </div>
         </Reveal>
-        <div className="mt-7 grid gap-5 sm:grid-cols-2">
+        <div className="mt-2 flex flex-col border-t border-[var(--color-line)]">
           {management.map((item, i) => {
             const tone: Tone = i === 0 ? "blue" : "sand";
-            const Icon = i === 0 ? UserCog : Users;
             return (
               <Reveal key={item.title} delay={Math.min(i * 0.06, 0.18)}>
-                <div className={cn("h-full rounded-[26px] p-6", tone === "blue" ? "bg-[var(--color-blue-50)]" : "bg-[var(--color-sand-50)]")}>
-                  <span className={cn("grid h-12 w-12 place-items-center rounded-2xl text-white", TILE_TONE[tone])}>
-                    <Icon size={22} />
+                <div className="flex flex-col gap-4 border-b border-[var(--color-line)] py-7 sm:flex-row sm:items-start sm:gap-8">
+                  <span className={cn("select-none font-display text-[40px] font-black leading-none sm:w-[168px]", SOLID_TEXT[tone])}>
+                    {String(i + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="mt-4 font-display text-[16.5px] font-bold text-[var(--color-ink-900)]">{item.title}</h3>
-                  <p className="mt-2 text-[14.5px] leading-relaxed text-[var(--color-ink-700)]">
-                    {item.textBefore}
-                    <span className="font-semibold text-[var(--color-ink-900)]">{item.textBold}</span>
-                    {item.textAfter}
-                  </p>
+                  <div className="min-w-0">
+                    <h3 className="font-display text-[18px] font-bold leading-snug text-[var(--color-ink-900)]">
+                      {item.title}
+                    </h3>
+                    <p className="mt-1.5 text-[15px] leading-relaxed text-[var(--color-ink-500)]">
+                      {item.textBefore}
+                      <span className="font-semibold text-[var(--color-ink-900)]">{item.textBold}</span>
+                      {item.textAfter}
+                    </p>
+                  </div>
                 </div>
               </Reveal>
             );
