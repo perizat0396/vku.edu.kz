@@ -32,28 +32,22 @@ type Tone = "blue" | "mint" | "sand";
 const TONE_ORDER: Tone[] = ["blue", "mint", "sand"];
 
 const TILE_TONE: Record<Tone, string> = {
-  blue: "bg-[var(--color-blue-500)]",
-  mint: "bg-[var(--color-mint-500)]",
+  blue: "bg-[var(--color-blue-600)]",
+  mint: "bg-[var(--color-mint-600)]",
   sand: "bg-[var(--color-sand-600)]",
 };
 
 const TILE_ROTATE = ["-rotate-1", "rotate-1", "-rotate-1", "rotate-1"];
 
 const CHIP_TONE: Record<Tone, string> = {
-  blue: "bg-[var(--color-blue-500)]",
-  mint: "bg-[var(--color-mint-500)]",
+  blue: "bg-[var(--color-blue-600)]",
+  mint: "bg-[var(--color-mint-600)]",
   sand: "bg-[var(--color-sand-600)]",
 };
 
-const RING_TONE: Record<Tone, string> = {
-  blue: "bg-[var(--color-blue-50)] text-[var(--color-blue-600)] ring-[var(--color-blue-100)]",
-  mint: "bg-[var(--color-mint-50)] text-[var(--color-mint-600)] ring-[var(--color-mint-100)]",
-  sand: "bg-[var(--color-sand-50)] text-[var(--color-sand-600)] ring-[var(--color-sand-100)]",
-};
-
 const BAND_TONE: Record<Tone, string> = {
-  blue: "bg-[var(--color-blue-500)]",
-  mint: "bg-[var(--color-mint-500)]",
+  blue: "bg-[var(--color-blue-600)]",
+  mint: "bg-[var(--color-mint-600)]",
   sand: "bg-[var(--color-sand-600)]",
 };
 
@@ -128,14 +122,25 @@ export function StudentKurultai() {
       </div>
 
       <Container className="max-w-3xl">
-        {/* Mission — bold gradient banner */}
+        {/* Mission — bold gradient banner with a big pull-quote treatment */}
         <Reveal>
           <div
-            className="relative mt-14 overflow-hidden rounded-[32px] p-8 sm:p-10"
-            style={{ background: "linear-gradient(135deg, var(--color-blue-600) 0%, var(--color-mint-600) 100%)" }}
+            className="relative mt-14 overflow-hidden rounded-[32px] p-8 sm:p-12"
+            style={{
+              background:
+                "linear-gradient(120deg, var(--color-blue-700) 0%, var(--color-blue-600) 45%, var(--color-mint-600) 100%)",
+            }}
           >
+            <div
+              className="pointer-events-none absolute inset-0 opacity-[0.07]"
+              style={{
+                backgroundImage: "radial-gradient(circle, #ffffff 1.5px, transparent 1.5px)",
+                backgroundSize: "18px 18px",
+              }}
+              aria-hidden
+            />
             <svg
-              className="pointer-events-none absolute -right-10 -top-10 h-44 w-44 rotate-12 text-white/[0.12]"
+              className="pointer-events-none absolute -right-12 -top-12 h-56 w-56 rotate-12 text-white/[0.1]"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -145,11 +150,19 @@ export function StudentKurultai() {
               <path d="m12 5.4 7.6 3.4-7.6 3.4-7.6-3.4L12 5.4Z" strokeLinejoin="round" />
               <path d="M7.6 10.4v3.4c0 1.4 2 2.6 4.4 2.6s4.4-1.2 4.4-2.6v-3.4" />
             </svg>
-            <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-[13px] font-bold uppercase tracking-wide text-white">
-              <Sparkles size={14} />
+
+            <span className="relative grid h-14 w-14 place-items-center rounded-2xl bg-white text-[var(--color-blue-600)] shadow-[var(--shadow-lift)]">
+              <Sparkles size={24} />
+            </span>
+
+            <p className="relative mt-6 select-none font-display text-[90px] font-black leading-none text-white/15 sm:text-[120px]">
+              &ldquo;
+            </p>
+
+            <span className="relative -mt-10 block text-[13px] font-bold uppercase tracking-[0.16em] text-white/70 sm:-mt-14">
               {t("studentKurultai.missionLabel")}
             </span>
-            <p className="relative mt-4 max-w-xl text-[20px] font-medium leading-relaxed text-white sm:text-[22px]">
+            <p className="relative mt-3 max-w-2xl text-balance font-display text-[24px] font-bold leading-[1.35] text-white sm:text-[30px]">
               {t("studentKurultai.missionText")}
             </p>
           </div>
@@ -168,19 +181,25 @@ export function StudentKurultai() {
               <Reveal key={task.title} delay={Math.min(i * 0.04, 0.24)}>
                 <div
                   className={cn(
-                    "h-full rounded-[26px] p-6 text-white shadow-[var(--shadow-soft)] transition-transform duration-300 hover:-translate-y-1 hover:rotate-0",
+                    "relative h-full overflow-hidden rounded-[26px] p-6 text-white shadow-[var(--shadow-soft)] transition-transform duration-300 hover:-translate-y-1 hover:rotate-0",
                     TILE_TONE[tone],
                     TILE_ROTATE[i % TILE_ROTATE.length]
                   )}
                 >
-                  <span className="grid h-11 w-11 place-items-center rounded-2xl bg-white/20 text-white">
+                  <span
+                    className="pointer-events-none absolute -right-2 -top-5 select-none font-display text-[88px] font-black leading-none text-white/[0.13]"
+                    aria-hidden
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="relative grid h-11 w-11 place-items-center rounded-2xl bg-white text-[var(--color-ink-900)]">
                     {(() => {
                       const Icon = TASK_ICONS[i % TASK_ICONS.length];
                       return <Icon size={20} />;
                     })()}
                   </span>
-                  <h3 className="mt-4 font-display text-[17px] font-bold leading-snug">{task.title}</h3>
-                  <p className="mt-1.5 text-[14.5px] leading-relaxed text-white/85">{task.description}</p>
+                  <h3 className="relative mt-4 font-display text-[17px] font-bold leading-snug">{task.title}</h3>
+                  <p className="relative mt-1.5 text-[14.5px] leading-relaxed text-white/85">{task.description}</p>
                 </div>
               </Reveal>
             );
@@ -231,7 +250,7 @@ export function StudentKurultai() {
             return (
               <Reveal key={label} delay={Math.min(i * 0.04, 0.16)}>
                 <div className="relative flex h-full flex-col items-center gap-3 rounded-[22px] border border-[var(--color-line)] bg-white p-6 text-center">
-                  <span className={cn("relative z-10 grid h-14 w-14 place-items-center rounded-2xl ring-1", RING_TONE[tone])}>
+                  <span className={cn("relative z-10 grid h-14 w-14 place-items-center rounded-2xl text-white shadow-[var(--shadow-soft)]", BAND_TONE[tone])}>
                     <Icon size={24} />
                   </span>
                   <h3 className="font-display text-[15px] font-bold leading-snug text-[var(--color-ink-900)]">{label}</h3>
