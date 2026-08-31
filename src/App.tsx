@@ -7,6 +7,7 @@ import { Footer } from "./components/layout/Footer";
 import { ScrollToTop } from "./components/layout/ScrollToTop";
 import { Home } from "./pages/Home";
 import { StudentNavigator } from "./pages/StudentNavigator";
+import { StudentKurultai } from "./pages/StudentKurultai";
 import { NewsPage } from "./pages/News";
 import { NewsArticle } from "./pages/NewsArticle";
 import { Announcements } from "./pages/Announcements";
@@ -34,6 +35,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/students/navigator" element={<StudentNavigator />} />
+          <Route path="/students/kurultai" element={<StudentKurultai />} />
           <Route path="/news" element={<NewsPage />} />
           <Route path="/news/:id" element={<NewsArticle />} />
           <Route path="/announcements" element={<Announcements />} />

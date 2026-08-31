@@ -21,6 +21,7 @@
     "students": "Students",
     "studentLifeLink": "Student life",
     "studentNavigator": "Student Navigator",
+    "studentKurultai": "Student Kurultai",
     "admission": "Admission",
     "cooperation": "International",
     "news": "News",
@@ -259,5 +260,77 @@
     "finalTitle": "Remember!",
     "finalText1": "The university isn't just where you get a diploma.",
     "finalText2": "It's a place where you find yourself, make friends, gain experience, and shape your future."
+  },
+  "studentKurultai": {
+    "eyebrow": "Students",
+    "title": "Student Kurultai",
+    "subtitle": "The unified body of student self-governance — a space for initiatives, leadership development, and addressing pressing issues in student life at the university.",
+    "missionLabel": "Our mission",
+    "missionText": "Building a culture of student self-governance, supporting student initiatives, developing students' leadership potential, and creating opportunities for their active participation in university public life.",
+    "tasksLabel": "Key tasks",
+    "tasks": [
+      { "title": "Skill development", "description": "Creating conditions for developing leadership, organizational and managerial skills." },
+      { "title": "Engagement", "description": "Encouraging students to take an active part in public, cultural and social life." },
+      { "title": "Involvement in decisions", "description": "Taking part in drafting and implementing documents and decisions that affect student interests." },
+      { "title": "Problem-solving", "description": "Identifying pressing issues in student life and helping resolve them effectively." },
+      { "title": "Safe environment", "description": "Helping prevent misconduct and build a safe, stable environment." },
+      { "title": "Dialogue with the university", "description": "Keeping university leadership informed of important issues and putting forward proposals." },
+      { "title": "Events", "description": "Supporting the organization of public, cultural, sports and other student events." },
+      { "title": "Quality rest", "description": "Helping create conditions for study, creative activity and proper rest." }
+    ],
+    "functionsLabel": "Core functions",
+    "functions": [
+      "Developing and implementing initiatives",
+      "Protecting social and legal interests",
+      "Raising civic engagement",
+      "Working with the administration",
+      "Coordinating student life"
+    ],
+    "structureLabel": "Organizational structure",
+    "structure": [
+      "University starostat",
+      "School starostats",
+      "Student housing council",
+      "School Kurultai chairs"
+    ],
+    "leadersLabel": "Leadership and coordinators",
+    "leaders": [
+      {
+        "name": "Adal Unzila Adalkyzy",
+        "role": "Chair of the University Student Kurultai",
+        "spec": "3rd-year student, English Language program (IP)",
+        "phone": "+7 (706) 605-78-21",
+        "email": "nziladal@gmail.com"
+      },
+      {
+        "name": "Allamuratova Sandugash Nagmetkyzy",
+        "role": "Chair of the Student Kurultai, School of Humanities",
+        "spec": "3rd-year student, History and Social Studies program (IP)",
+        "phone": "+7 (747) 244-49-32",
+        "email": "sanduallamurat@gmail.com"
+      },
+      {
+        "name": "Abutalip Asylan Zhanibekuly",
+        "role": "Deputy Chair of the University Student Kurultai",
+        "spec": "3rd-year student, History and Social Studies program (IP)",
+        "phone": "+7 (747) 824-14-50",
+        "email": "asylanabutalip04@gmail.com"
+      }
+    ],
+    "managementLabel": "Governance structure",
+    "management": [
+      {
+        "title": "Leadership",
+        "textBefore": "Overall leadership is provided by the ",
+        "textBold": "Kurultai Chair",
+        "textAfter": " (deputy chair of the Youth Affairs Committee), elected at the university's general student assembly."
+      },
+      {
+        "title": "Composition and coordination",
+        "textBefore": "Membership includes representatives of academic groups and schools. A ",
+        "textBold": "secretary and direction coordinators",
+        "textAfter": " are elected from among the members."
+      }
+    ]
   }
 }

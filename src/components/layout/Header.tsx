@@ -22,6 +22,7 @@ const NAV_ITEMS: NavItem[] = [
     children: [
       { key: "studentLifeLink", href: `${BASE}#student-life` },
       { key: "studentNavigator", to: "/students/navigator" },
+      { key: "studentKurultai", to: "/students/kurultai" },
     ],
   },
   { key: "admission", href: `${BASE}#admission` },
