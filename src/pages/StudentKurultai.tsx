@@ -117,19 +117,40 @@ export function StudentKurultai() {
             <p className="mt-4 max-w-xl text-[18px] leading-relaxed text-[var(--color-ink-500)]">
               {t("studentKurultai.subtitle")}
             </p>
+
+            <dl className="mt-10 grid max-w-lg grid-cols-3 gap-6 border-t border-[var(--color-line-strong)] pt-7">
+              {[
+                { value: tasks.length, label: t("studentKurultai.statTasks"), tone: "blue" as Tone },
+                { value: structure.length, label: t("studentKurultai.statStructure"), tone: "mint" as Tone },
+                { value: leaders.length, label: t("studentKurultai.statLeaders"), tone: "sand" as Tone },
+              ].map((stat) => (
+                <div key={stat.label}>
+                  <dt className={cn("font-display text-3xl font-extrabold", SOLID_TEXT[stat.tone])}>{stat.value}</dt>
+                  <dd className="mt-1 text-[13px] leading-snug text-[var(--color-ink-500)]">{stat.label}</dd>
+                </div>
+              ))}
+            </dl>
           </Reveal>
         </Container>
       </div>
 
       <Container className="max-w-3xl">
-        {/* Mission — pure typography, no box */}
+        {/* Mission — framed statement card */}
         <Reveal>
-          <p className="mt-16 font-display text-[13px] font-bold uppercase tracking-[0.2em] text-[var(--color-blue-600)]">
-            {t("studentKurultai.missionLabel")}
-          </p>
-          <p className="mt-4 text-balance font-display text-[30px] font-black leading-[1.25] text-[var(--color-ink-900)] sm:text-[44px]">
-            {t("studentKurultai.missionText")}
-          </p>
+          <div className="relative mt-16 overflow-hidden rounded-[28px] border border-[var(--color-line)] bg-[var(--color-mist)] p-8 sm:p-11">
+            <div
+              className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full opacity-60 blur-3xl"
+              style={{ background: "radial-gradient(circle, var(--color-blue-100), transparent 70%)" }}
+              aria-hidden
+            />
+            <span className="relative inline-flex items-center gap-2 rounded-full bg-white px-4 py-1.5 text-[13px] font-bold uppercase tracking-wide text-[var(--color-blue-600)] shadow-[var(--shadow-soft)]">
+              <span className="h-2 w-2 rounded-full bg-[var(--color-blue-600)]" aria-hidden />
+              {t("studentKurultai.missionLabel")}
+            </span>
+            <p className="relative mt-5 text-balance font-display text-[26px] font-extrabold leading-[1.3] text-[var(--color-ink-900)] sm:text-[36px]">
+              {t("studentKurultai.missionText")}
+            </p>
+          </div>
         </Reveal>
 
         {/* Tasks — numbered manifesto rows */}
